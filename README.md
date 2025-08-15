@@ -85,5 +85,4 @@ Feel free to connect for learning opportunities, collaborations, or discussions!
 
 - **Email:** ravinduwanasinghe97@gmail.com
 - **GitHub:** [RavinduWanasinghe0524](https://github.com/RavinduWanasinghe0524)
-- **LinkedIn:** [Your LinkedIn Profile](#)  
-  \*(Update this link to your actual
+- **LinkedIn:** [Ravindu Wanasinghe](https://www.linkedin.com/in/ravindu-wanasinghe-b08a50315/)
