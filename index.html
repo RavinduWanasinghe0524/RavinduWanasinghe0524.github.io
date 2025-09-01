@@ -1,22 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ravindu Wanasinghe - Information Systems Student Portfolio</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Base styles for body and typography, consistent dark theme */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Deep Slate */
+            background-color: #0d0d0d; /* Very dark background */
             color: #e2e8f0; /* Light Gray */
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            scroll-behavior: smooth; /* Ensure smooth scrolling for anchors */
+            scroll-behavior: smooth;
         }
         .container {
             max-width: 1200px;
@@ -24,12 +23,12 @@
             padding: 1.5rem;
         }
         .section-heading {
-            font-weight: 800; /* Bolder headings */
-            margin-bottom: 2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
             text-align: center;
             position: relative;
             padding-bottom: 0.5rem;
-            color: #cbd5e0; /* Off-white for headings */
+            color: #cbd5e0;
         }
         .section-heading::after {
             content: '';
@@ -40,74 +39,74 @@
             width: 80px;
             height: 4px;
             background-color: #8b5cf6; /* Violet-500 for accent */
-            border-radius: 9999px; /* Rounded pill shape */
+            border-radius: 9999px;
         }
-
-        /* Custom styles for rounded corners and shadows */
         .card {
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Deeper shadow for dark mode */
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        /* Animation for section entry */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.7), 0 6px 10px -2px rgba(0, 0, 0, 0.3);
         }
-        .fade-in-up.active {
-            opacity: 1;
-            transform: translateY(0);
+        .hero-section {
+            background: linear-gradient(135deg, #1f2937, #111827);
+            animation: gradient-shift 10s ease infinite;
         }
-
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
         /* Scroll to top button styles */
         #scroll-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #8b5cf6; /* Violet-500 */
+            background-color: #8b5cf6;
             color: white;
             padding: 12px 16px;
-            border-radius: 9999px; /* Fully rounded */
+            border-radius: 9999px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: none; /* Hidden by default */
+            display: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
             z-index: 1000;
         }
-        #scroll-to-top:hover {
-            background-color: #7c3aed; /* Violet-600 */
-            transform: translateY(-3px);
+        #scroll-to-top.show {
+            display: block;
+            opacity: 1;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Header Section -->
-    <header class="bg-gradient-to-r from-gray-800 to-zinc-950 text-gray-100 py-8 card rounded-b-none">
-        <div class="container flex flex-col md:flex-row items-center justify-between">
-            <div class="text-center md:text-left mb-4 md:mb-0">
-                <h1 class="text-5xl font-bold mb-2">Ravindu Wanasinghe</h1>
-                <p class="text-2xl font-light">Information Systems Student</p>
-            </div>
-            <nav class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6 text-xl">
-                <a href="#about" class="hover:text-gray-400 transition duration-300 transform hover:scale-105">About</a>
-                <a href="#education" class="hover:text-gray-400 transition duration-300 transform hover:scale-105">Education</a>
-                <a href="#skills" class="hover:text-gray-400 transition duration-300 transform hover:scale-105">Skills</a>
-                <a href="#projects" class="hover:text-gray-400 transition duration-300 transform hover:scale-105">Projects</a>
-                <a href="#contact" class="hover:text-gray-400 transition duration-300 transform hover:scale-105">Contact</a>
+    <div class="hero-section py-20 text-center text-gray-100 card rounded-b-none" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 animate-pulse">Ravindu Wanasinghe</h1>
+            <p class="text-3xl md:text-4xl font-light">Information Systems Student</p>
+        </div>
+    </div>
+
+    <header class="bg-gray-900 sticky top-0 z-50 shadow-lg">
+        <div class="container flex flex-col md:flex-row items-center justify-center py-4 text-xl">
+            <nav class="flex flex-wrap items-center justify-center space-x-4 md:space-x-6">
+                <a href="#about" class="hover:text-violet-400 transition duration-300 transform hover:scale-105">About</a>
+                <a href="#education" class="hover:text-violet-400 transition duration-300 transform hover:scale-105">Education</a>
+                <a href="#skills" class="hover:text-violet-400 transition duration-300 transform hover:scale-105">Skills</a>
+                <a href="#projects" class="hover:text-violet-400 transition duration-300 transform hover:scale-105">Projects</a>
+                <a href="#contact" class="hover:text-violet-400 transition duration-300 transform hover:scale-105">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-800 card mt-6 fade-in-up">
+    <section id="about" class="py-16 bg-gray-900 card mt-6" data-aos="fade-up">
         <div class="container">
             <h2 class="text-4xl section-heading text-gray-200">About Me</h2>
             <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <!-- Single profile picture for consistent dark mode -->
-                <img src="2.jpg" alt="2" class="w-48 h-48 rounded-full object-cover shadow-lg">
-                <div class="text-lg leading-relaxed text-center md:text-left text-gray-200">
+                <img src="2.jpg" alt="Ravindu Wanasinghe" class="w-48 h-48 rounded-full object-cover shadow-lg" data-aos="zoom-in">
+                <div class="text-lg leading-relaxed text-center md:text-left text-gray-300">
                     <p class="mb-4">Hello! I'm Ravindu Wanasinghe, a dedicated **first-year Information Systems degree student at Sabaragamuwa University of Sri Lanka**. My academic journey has just begun, but I'm passionately diving into the foundations of technology and problem-solving.</p>
                     <p class="mb-4">Currently, I'm building a strong understanding of **core programming concepts, database fundamentals, and system analysis principles** as part of my degree. I'm excited about how information systems can be designed and implemented to create efficient, user-centric, and impactful solutions.</p>
                     <p>I enjoy exploring new tools and languages, and I'm always seeking opportunities to apply theoretical knowledge through practical exercises and my first project. I'm eager to learn from real-world applications and grow my expertise in the ever-evolving tech landscape, always striving to grasp how to build robust and scalable systems from the ground up.</p>
@@ -115,14 +114,14 @@
             </div>
         </div>
     </section>
+    
+    <hr class="border-gray-700 my-8">
 
-    <!-- Education Section -->
-    <section id="education" class="py-16 bg-gray-900 card mt-6 fade-in-up">
+    <section id="education" class="py-16 bg-gray-900 card mt-6" data-aos="fade-up">
         <div class="container">
             <h2 class="text-4xl section-heading text-gray-200">My Academic Journey</h2>
             <div class="flex flex-col items-center">
-                <!-- Education Card -->
-                <div class="bg-gray-700 p-6 card w-full max-w-2xl">
+                <div class="bg-gray-800 p-6 card w-full max-w-2xl" data-aos="zoom-in-up">
                     <h3 class="text-3xl font-semibold mb-4 text-indigo-400">Education</h3>
                     <div class="mb-6">
                         <h4 class="text-xl font-bold text-gray-100">BSc (Hons) in Information Systems</h4>
@@ -138,14 +137,14 @@
             </div>
         </div>
     </section>
+    
+    <hr class="border-gray-700 my-8">
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-800 card mt-6 fade-in-up">
+    <section id="skills" class="py-16 bg-gray-900 card mt-6" data-aos="fade-up">
         <div class="container">
             <h2 class="text-4xl section-heading text-gray-200">Skills & Foundations</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-                <!-- Example Skill Cards -->
-                <div class="bg-gray-700 p-6 card hover:scale-105 transition-transform duration-300">
+                <div class="bg-gray-800 p-6 card" data-aos="flip-left">
                     <h3 class="text-2xl font-semibold mb-2 text-blue-400">Programming Languages</h3>
                     <ul class="list-none p-0 m-0 text-lg text-gray-200">
                         <li>Python (Basic)</li>
@@ -153,7 +152,7 @@
                         <li>SQL (Fundamentals)</li>
                     </ul>
                 </div>
-                <div class="bg-gray-700 p-6 card hover:scale-105 transition-transform duration-300">
+                <div class="bg-gray-800 p-6 card" data-aos="flip-left" data-aos-delay="100">
                     <h3 class="text-2xl font-semibold mb-2 text-purple-400">Database & Tools</h3>
                     <ul class="list-none p-0 m-0 text-lg text-gray-200">
                         <li>MySQL (Basic)</li>
@@ -162,7 +161,7 @@
                         <li>Microsoft Office Suite</li>
                     </ul>
                 </div>
-                <div class="bg-gray-700 p-6 card hover:scale-105 transition-transform duration-300">
+                <div class="bg-gray-800 p-6 card" data-aos="flip-left" data-aos-delay="200">
                     <h3 class="text-2xl font-semibold mb-2 text-green-400">Concepts & Soft Skills</h3>
                     <ul class="list-none p-0 m-0 text-lg text-gray-200">
                         <li>Object-Oriented Concepts</li>
@@ -171,62 +170,128 @@
                         <li>Communication</li>
                     </ul>
                 </div>
-                <div class="bg-gray-700 p-6 card hover:scale-105 transition-transform duration-300">
+                <div class="bg-gray-800 p-6 card" data-aos="flip-left" data-aos-delay="300">
                     <h3 class="text-2xl font-semibold mb-2 text-yellow-400">Web Fundamentals</h3>
                     <ul class="list-none p-0 m-0 text-lg text-gray-200">
                         <li>HTML (Basic)</li>
                         <li>CSS (Basic)</li>
                         <li>JavaScript (Basic)</li>
+                        <li>TypeScript (Basic)</li>
                     </ul>
                 </div>
-                <!-- Add more skill categories as needed -->
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-900 card mt-6 fade-in-up">
-        <div class="container">
-            <h2 class="text-4xl section-heading text-gray-200">My Project</h2>
-            <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-3xl mx-auto">
-                <!-- Single Project Card -->
-                <div class="bg-gray-700 p-6 card hover:scale-105 transition-transform duration-300">
-                    <!-- Single image tag for consistent dark mode -->
-                    <img src="1.png" alt="Screenshot (61)" class="w-full h-48 object-cover mb-4 rounded-md">
+    <hr class="border-gray-700 my-8">
 
+    <section id="projects" class="py-16 bg-gray-900 card mt-6" data-aos="fade-up">
+        <div class="container">
+            <h2 class="text-4xl section-heading text-gray-200">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 card" data-aos="fade-right">
+                    <img src="1.png" alt="Elite Wheels Screenshot" class="w-full h-48 object-cover mb-4 rounded-md">
                     <h3 class="text-2xl font-semibold mb-2 text-blue-400">Elite Wheels - E-commerce Web Application</h3>
-                    <p class="text-gray-200 mb-4">Developed "Elite Wheels," a web-based e-commerce platform specializing in car sales. This project allowed me to apply foundational web development skills in a practical scenario, focusing on creating product listings, a user-friendly interface for browsing cars, and a basic inquiry system. It's built with standard web technologies and served as a hands-on introduction to creating functional web applications.</p>
+                    <p class="text-gray-300 mb-4">Developed "Elite Wheels," a web-based e-commerce platform specializing in car sales. This project allowed me to apply foundational web development skills, focusing on creating product listings, a user-friendly interface for browsing cars, and a basic inquiry system.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="bg-blue-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">HTML</span>
                         <span class="bg-green-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">CSS</span>
-                        <span class="bg-purple-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">JavaScript</span>
-                        <!-- You can add more specific technologies here if you used any backend or frameworks -->
+                        <span class="bg-yellow-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">JavaScript</span>
                     </div>
                     <div class="flex space-x-4">
                         <a href="https://ravinduwanasinghe0524.github.io/Elite-Wheels/" target="_blank" class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg font-medium">Live Demo</a>
                         <a href="https://github.com/RavinduWanasinghe0524/Elite-Wheels" target="_blank" class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition duration-300 text-lg font-medium">GitHub Repo</a>
                     </div>
                 </div>
+
+                <div class="bg-gray-800 p-6 card" data-aos="fade-left">
+                    <img src="https://via.placeholder.com/600x400.png?text=Eco-Ceylon+Image" alt="Eco-Ceylon Project" class="w-full h-48 object-cover mb-4 rounded-md">
+                    <h3 class="text-2xl font-semibold mb-2 text-green-400">Eco-Ceylon</h3>
+                    <p class="text-gray-300 mb-4">A project focused on environmental sustainability in Sri Lanka. This application was built using TypeScript, demonstrating my ability to work with a strongly-typed language for more robust and scalable web applications.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">TypeScript</span>
+                        <span class="bg-blue-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">HTML</span>
+                        <span class="bg-green-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">CSS</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/RavinduWanasinghe0524/Eco-Ceylon" target="_blank" class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition duration-300 text-lg font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 card" data-aos="fade-right">
+                    <img src="https://via.placeholder.com/600x400.png?text=The+Reuse+Hub+Image" alt="The Reuse Hub Project" class="w-full h-48 object-cover mb-4 rounded-md">
+                    <h3 class="text-2xl font-semibold mb-2 text-yellow-400">The Reuse Hub</h3>
+                    <p class="text-gray-300 mb-4">This project, forked from another repository, is an initiative to promote recycling and reuse. My contribution involved enhancing the frontend user interface and experience, showcasing my skills in collaborative development and HTML/CSS styling.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">HTML</span>
+                        <span class="bg-green-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">CSS</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/RavinduWanasinghe0524/the-reuse-hub" target="_blank" class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition duration-300 text-lg font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 card" data-aos="fade-left">
+                    <img src="https://via.placeholder.com/600x400.png?text=Car+Racing+Game+Image" alt="Car Racing Game" class="w-full h-48 object-cover mb-4 rounded-md">
+                    <h3 class="text-2xl font-semibold mb-2 text-red-400">3D Car Racing Game</h3>
+                    <p class="text-gray-300 mb-4">A fun 3D car racing game built with **Java Swing**. This project highlights my object-oriented programming skills and my ability to create interactive applications with dynamic graphics, realistic physics, and smooth 60 FPS gameplay.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-red-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">Java</span>
+                        <span class="bg-purple-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">Java Swing</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/RavinduWanasinghe0524/car-racing-game" target="_blank" class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition duration-300 text-lg font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="bg-gray-800 p-6 card" data-aos="fade-right">
+                    <img src="https://via.placeholder.com/600x400.png?text=The+Borrowing+Station+Image" alt="The Borrowing Station Project" class="w-full h-48 object-cover mb-4 rounded-md">
+                    <h3 class="text-2xl font-semibold mb-2 text-orange-400">The Borrowing Station</h3>
+                    <p class="text-gray-300 mb-4">A simple web project named "The Borrowing Station." This initiative explores fundamental web concepts to create a basic platform for borrowing and lending. It's built with HTML and showcases core frontend development skills.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">HTML</span>
+                        <span class="bg-green-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">CSS</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/RavinduWanasinghe0524/The-borrowing-Station" target="_blank" class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition duration-300 text-lg font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-6 card" data-aos="fade-left">
+                    <img src="https://via.placeholder.com/600x400.png?text=Portfolio+Website" alt="Portfolio Website" class="w-full h-48 object-cover mb-4 rounded-md">
+                    <h3 class="text-2xl font-semibold mb-2 text-cyan-400">Personal Portfolio Website</h3>
+                    <p class="text-gray-300 mb-4">The very site you are viewing! This project serves as a showcase of my skills and a live demonstration of my proficiency in HTML and CSS, with a focus on responsive design and modern aesthetics.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">HTML</span>
+                        <span class="bg-green-600 text-white text-sm font-medium px-2.5 py-0.5 rounded-full">CSS</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="https://ravinduwanasinghe0524.github.io/" target="_blank" class="bg-indigo-600 text-white px-5 py-2 rounded-lg hover:bg-indigo-700 transition duration-300 text-lg font-medium">Live Demo</a>
+                        <a href="https://github.com/RavinduWanasinghe0524/RavinduWanasinghe0524.github.io" target="_blank" class="bg-gray-600 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition duration-300 text-lg font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-800 card mt-6 fade-in-up">
+    <hr class="border-gray-700 my-8">
+
+    <section id="contact" class="py-16 bg-gray-900 card mt-6" data-aos="fade-up">
         <div class="container">
             <h2 class="text-4xl section-heading text-gray-200">Get in Touch</h2>
-            <div class="text-center text-lg leading-relaxed max-w-2xl mx-auto text-gray-200">
+            <div class="text-center text-lg leading-relaxed max-w-2xl mx-auto text-gray-300">
                 <p class="mb-6">I'm always open to new learning opportunities, collaborative projects, and connecting with other tech enthusiasts. Feel free to reach out!</p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="mailto:ravinduwanasinghe97@gmail.com" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-xl font-medium flex items-center gap-2">
+                    <a href="mailto:ravinduwanasinghe97@gmail.com" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 text-xl font-medium flex items-center gap-2" data-aos="zoom-in" data-aos-delay="200">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                         Email Me
                     </a>
-                    <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="bg-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition duration-300 text-xl font-medium flex items-center gap-2">
+                    <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="bg-gray-700 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition duration-300 text-xl font-medium flex items-center gap-2" data-aos="zoom-in" data-aos-delay="400">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.18 6.839 9.504.499.09.679-.217.679-.481 0-.237-.008-.865-.013-1.703-2.782.603-3.37-1.34-3.37-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.618.069-.607.069-.607 1.004.07 1.531 1.028 1.531 1.028.892 1.529 2.341 1.087 2.91.83.091-.643.35-1.087.637-1.334-2.22-.253-4.555-1.113-4.555-4.949 0-1.096.39-1.993 1.029-2.697-.103-.253-.446-1.275.097-2.659 0 0 .84-.27 2.75 1.025.798-.222 1.649-.333 2.498-.337 0 0 .91.002 1.817.114.906-.112 1.817-.114 1.817-.114 1.91 1.295 2.75 1.025 2.75 1.025.546 1.384.202 2.406.097 2.659.64.704 1.029 1.601 1.029 2.697 0 3.848-2.339 4.694-4.566 4.941.359.309.678.922.678 1.855 0 1.335-.012 2.417-.012 2.748 0 .267.177.576.687.478C21.133 20.208 24 16.442 24 12.017 24 6.484 19.523 2 14 2h-2z" clip-rule="evenodd"></path></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="bg-blue-800 text-white px-8 py-3 rounded-lg hover:bg-blue-900 transition duration-300 text-xl font-medium flex items-center gap-2">
+                    <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="bg-blue-800 text-white px-8 py-3 rounded-lg hover:bg-blue-900 transition duration-300 text-xl font-medium flex items-center gap-2" data-aos="zoom-in" data-aos-delay="600">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.485 2.5C1.095 6 0 4.881 0 3.5S1.095 1 2.495 1C3.87 1 4.98 2.119 4.98 3.5zm-2.495 6.25h4.99V24H2.485V9.75zM12.972 9.75h-4.99v14H12.972c.002-1.996 0-10.231 0-14zM16.972 9.75h-4.001v14h4.001c.002-1.996 0-10.231 0-14zM20.972 9.75h-4.001v14h4.001c.002-1.996 0-10.231 0-14z"></path></svg>
                         LinkedIn
                     </a>
@@ -235,67 +300,37 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <hr class="border-gray-700 my-8">
+
     <footer class="bg-gray-950 text-white py-6 mt-6 card rounded-t-none">
         <div class="container text-center text-gray-400">
             <p>&copy; 2025 Ravindu Wanasinghe. All rights reserved.</p>
-            
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scroll-to-top" aria-label="Scroll to top">
+    <button id="scroll-to-top" aria-label="Scroll to top" class="opacity-0">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
     </button>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.fade-in-up');
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                offset: 120,
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+            });
+
             const scrollToTopButton = document.getElementById('scroll-to-top');
-
-            // --- Intersection Observer for Fade-in-Up Animations ---
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.1 // 10% of element visible
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    } else {
-                        // Optional: remove 'active' class when out of view
-                        // entry.target.classList.remove('active');
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // --- Smooth Scrolling for Navigation Links ---
-            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // --- Scroll to Top Button Logic ---
+            
+            // Scroll to Top Button Logic
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) { // Show button after scrolling 300px down
-                    scrollToTopButton.style.display = 'block';
-                    scrollToTopButton.style.opacity = '1';
+                if (window.scrollY > 300) {
+                    scrollToTopButton.classList.add('show');
                 } else {
-                    scrollToTopButton.style.opacity = '0';
-                    setTimeout(() => { // Hide completely after fade-out
-                        scrollToTopButton.style.display = 'none';
-                    }, 300);
+                    scrollToTopButton.classList.remove('show');
                 }
             });
 
@@ -309,3 +344,4 @@
     </script>
 </body>
 </html>
+```
