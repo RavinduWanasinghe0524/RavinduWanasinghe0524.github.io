@@ -384,23 +384,23 @@
       
       animatedElements.forEach((el) => observer.observe(el));
 
-      // Enhanced smooth nav scroll - ONLY handle internal navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      // Fix smooth navigation - ONLY target navigation links
+      document.querySelectorAll('a').forEach(anchor => {
         const href = anchor.getAttribute('href');
         
-        // Only handle internal navigation links, skip external links
-        if (href && href.startsWith('#') && href !== '#' && !anchor.hasAttribute('target')) {
-          anchor.addEventListener('click', function (e) {
-            console.log('Internal navigation clicked:', href); // Debug log
-            e.preventDefault();
-            
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-              console.log('Target found:', targetElement); // Debug log
+        // ONLY handle internal navigation links (start with # and go to sections)
+        if (href && href.startsWith('#') && href.length > 1 && !href.startsWith('http')) {
+          // Double-check this is actually a navigation link to a section
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            anchor.addEventListener('click', function (e) {
+              console.log('Internal navigation clicked:', href);
+              e.preventDefault();
+              
               const headerHeight = document.querySelector('.sticky-nav')?.offsetHeight || 80;
               const offsetTop = targetElement.offsetTop - headerHeight - 20;
               
-              // Smooth scroll with fallback
+              // Smooth scroll
               try {
                 window.scrollTo({
                   top: Math.max(0, offsetTop),
@@ -410,10 +410,8 @@
                 console.warn('Smooth scroll failed, using fallback:', error);
                 window.scrollTo(0, Math.max(0, offsetTop));
               }
-            } else {
-              console.warn('Target element not found for:', href);
-            }
-          });
+            });
+          }
         }
       });
 
