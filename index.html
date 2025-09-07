@@ -387,41 +387,32 @@
       
       animatedElements.forEach((el) => observer.observe(el));
 
-      // ONLY target navigation menu links - be very specific
-      const navSelectors = [
-        'header nav a[href^="#"]',  // Desktop navigation
-        '#mobile-menu a[href^="#"]', // Mobile navigation
-        'a[href="#projects"]',       // Hero buttons
-        'a[href="#contact"]'         // Hero buttons
-      ];
-      
-      navSelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(anchor => {
-          const href = anchor.getAttribute('href');
-          const targetElement = document.querySelector(href);
-          
-          if (targetElement) {
-            anchor.addEventListener('click', function (e) {
-              console.log('Navigation clicked:', href);
-              e.preventDefault();
-              
-              const headerHeight = document.querySelector('.sticky-nav')?.offsetHeight || 80;
-              const offsetTop = targetElement.offsetTop - headerHeight - 20;
-              
-              window.scrollTo({
-                top: Math.max(0, offsetTop),
-                behavior: 'smooth'
-              });
+      // Handle smooth scrolling for internal navigation links only
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        const href = anchor.getAttribute('href');
+        const targetElement = document.querySelector(href);
+        
+        if (targetElement) {
+          anchor.addEventListener('click', function (e) {
+            console.log('Navigation clicked:', href);
+            e.preventDefault();
+            
+            const headerHeight = document.querySelector('.sticky-nav')?.offsetHeight || 80;
+            const offsetTop = targetElement.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+              top: Math.max(0, offsetTop),
+              behavior: 'smooth'
             });
-          }
-        });
+          });
+        }
       });
 
-      // Debug external links to make sure they work
+      // Debug external links to make sure they work (no preventDefault)
       document.querySelectorAll('a[href^="http"], a[target="_blank"]').forEach(link => {
         link.addEventListener('click', function(e) {
           console.log('External link clicked:', this.href);
-          // Don't prevent default for external links - let them open normally
+          // Allow default behavior for external links
         });
       });
 
