@@ -387,14 +387,14 @@
       
       animatedElements.forEach((el) => observer.observe(el));
 
-      // Handle smooth scrolling for internal navigation links only
+      // Handle smooth scrolling for internal navigation links ONLY
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const href = anchor.getAttribute('href');
         const targetElement = document.querySelector(href);
         
         if (targetElement) {
           anchor.addEventListener('click', function (e) {
-            console.log('Navigation clicked:', href);
+            console.log('Internal navigation clicked:', href);
             e.preventDefault();
             
             const headerHeight = document.querySelector('.sticky-nav')?.offsetHeight || 80;
@@ -408,11 +408,27 @@
         }
       });
 
-      // Debug external links to make sure they work (no preventDefault)
-      document.querySelectorAll('a[href^="http"], a[target="_blank"]').forEach(link => {
+      // Debug and ensure external links work properly
+      console.log('Setting up external link handlers...');
+      const externalLinks = document.querySelectorAll('a[href^="http"], a[target="_blank"]');
+      console.log('Found external links:', externalLinks.length);
+      
+      externalLinks.forEach((link, index) => {
+        console.log(`Link ${index + 1}:`, link.href, link.textContent.trim());
+        
+        // Remove any existing event listeners that might interfere
+        link.onclick = null;
+        
+        // Add a simple click handler for debugging
         link.addEventListener('click', function(e) {
-          console.log('External link clicked:', this.href);
-          // Allow default behavior for external links
+          console.log('🔗 External link clicked:', this.href);
+          console.log('Target:', this.target);
+          
+          // Force open in new tab for external links
+          if (this.href.startsWith('http')) {
+            e.preventDefault();
+            window.open(this.href, '_blank', 'noopener,noreferrer');
+          }
         });
       });
 
