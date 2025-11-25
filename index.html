@@ -13,19 +13,6 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary-blue': '#3b82f6',
-            'primary-purple': '#8b5cf6',
-            'primary-cyan': '#06b6d4',
-          }
-        }
-      }
-    }
-  </script>
   <!-- Google Fonts: Space Grotesk & Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -49,11 +36,10 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #111827 50%, #1e293b 100%) !important;
-      color: #f9fafb !important;
+      background: linear-gradient(135deg, #0a0e27 0%, #111827 50%, #1e293b 100%);
+      color: var(--text-primary);
       overflow-x: hidden;
       line-height: 1.6;
-      min-height: 100vh;
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -84,91 +70,91 @@
     
     /* Navbar */
     nav {
-      backdrop-filter: blur(20px) !important;
-      background: rgba(10, 14, 39, 0.8) !important;
-      border-bottom: 1px solid rgba(59, 130, 246, 0.1) !important;
-      position: sticky !important;
-      top: 0 !important;
-      z-index: 50 !important;
-      transition: all 0.3s ease !important;
+      backdrop-filter: blur(20px);
+      background: rgba(10, 14, 39, 0.8);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      transition: all 0.3s ease;
     }
     
     nav.scrolled {
-      background: rgba(10, 14, 39, 0.95) !important;
-      border-bottom-color: rgba(59, 130, 246, 0.3) !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+      background: rgba(10, 14, 39, 0.95);
+      border-bottom-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     
     /* Cards */
     .card {
-      background: rgba(17, 24, 39, 0.6) !important;
-      backdrop-filter: blur(10px) !important;
-      border: 1px solid rgba(59, 130, 246, 0.1) !important;
-      border-radius: 16px !important;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-      overflow: hidden !important;
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
     }
     
     .card:hover {
-      transform: translateY(-8px) !important;
-      border-color: rgba(59, 130, 246, 0.4) !important;
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2) !important;
+      transform: translateY(-8px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
     }
     
     /* Buttons */
     .btn {
-      padding: 0.75rem 1.5rem !important;
-      border-radius: 8px !important;
-      font-weight: 600 !important;
-      transition: all 0.3s ease !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 0.5rem !important;
-      text-decoration: none !important;
-      cursor: pointer !important;
-      border: none !important;
-      font-size: 0.95rem !important;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
     }
     
     .btn-primary {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
-      color: white !important;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     }
     
     .btn-primary:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
     }
     
     .btn-secondary {
-      background: rgba(59, 130, 246, 0.1) !important;
-      color: #f9fafb !important;
-      border: 1px solid rgba(59, 130, 246, 0.3) !important;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--text-primary);
+      border: 1px solid rgba(59, 130, 246, 0.3);
     }
     
     .btn-secondary:hover {
-      background: rgba(59, 130, 246, 0.2) !important;
-      border-color: rgba(59, 130, 246, 0.5) !important;
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.5);
     }
     
     /* Tags */
     .tag {
-      display: inline-block !important;
-      padding: 0.4rem 0.9rem !important;
-      background: rgba(59, 130, 246, 0.1) !important;
-      border: 1px solid rgba(59, 130, 246, 0.2) !important;
-      border-radius: 6px !important;
-      font-size: 0.85rem !important;
-      font-weight: 500 !important;
-      transition: all 0.3s ease !important;
-      color: #93c5fd !important;
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      color: #93c5fd;
     }
     
     .tag:hover {
-      background: rgba(59, 130, 246, 0.2) !important;
-      border-color: rgba(59, 130, 246, 0.4) !important;
-      transform: translateY(-2px) !important;
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-2px);
     }
     
     /* Project Image */
@@ -185,14 +171,14 @@
     
     /* Section Title */
     .section-title {
-      font-size: 2.5rem !important;
-      font-weight: 700 !important;
-      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #22d3ee 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      margin-bottom: 3rem !important;
-      text-align: center !important;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 3rem;
+      text-align: center;
     }
     
     /* Animations */
@@ -236,186 +222,32 @@
     
     /* Scroll to Top Button */
     #scrollTop {
-      position: fixed !important;
-      bottom: 2rem !important;
-      right: 2rem !important;
-      width: 50px !important;
-      height: 50px !important;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      cursor: pointer !important;
-      opacity: 0 !important;
-      transform: translateY(100px) !important;
-      transition: all 0.3s ease !important;
-      z-index: 100 !important;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     }
     
     #scrollTop.visible {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+      opacity: 1;
+      transform: translateY(0);
     }
     
     #scrollTop:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6) !important;
-    }
-    
-    /* Profile Image Animations */
-    .profile-image {
-      animation: float-profile 6s ease-in-out infinite, glow-pulse 3s ease-in-out infinite;
-      transition: transform 0.3s ease !important;
-    }
-    
-    @keyframes float-profile {
-      0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      25% {
-        transform: translateY(-20px) rotate(5deg);
-      }
-      50% {
-        transform: translateY(-10px) rotate(-5deg);
-      }
-      75% {
-        transform: translateY(-15px) rotate(3deg);
-      }
-    }
-    
-    @keyframes glow-pulse {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
-                    0 0 40px rgba(139, 92, 246, 0.3),
-                    0 0 60px rgba(6, 182, 212, 0.2);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(59, 130, 246, 0.8),
-                    0 0 60px rgba(139, 92, 246, 0.5),
-                    0 0 80px rgba(6, 182, 212, 0.4);
-      }
-    }
-    
-    .profile-image:hover {
-      animation-play-state: paused;
-      transform: scale(1.1) rotate(5deg) !important;
-    }
-    
-    /* Typing Animation */
-    .typing-text {
-      overflow: hidden;
-      border-right: 3px solid #3b82f6;
-      white-space: nowrap;
-      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-      display: inline-block;
-    }
-    
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: #3b82f6; }
-    }
-    
-    /* Glowing Text Effect */
-    .glow-text {
-      animation: text-glow 2s ease-in-out infinite;
-    }
-    
-    @keyframes text-glow {
-      0%, 100% {
-        text-shadow: 0 0 10px rgba(59, 130, 246, 0.5),
-                     0 0 20px rgba(139, 92, 246, 0.3);
-      }
-      50% {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.8),
-                     0 0 40px rgba(139, 92, 246, 0.5),
-                     0 0 60px rgba(6, 182, 212, 0.3);
-      }
-    }
-    
-    /* Card Entrance Animation */
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-    
-    .slide-in {
-      animation: slideInUp 0.8s ease-out forwards;
-    }
-    
-    /* Particle Animation */
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      opacity: 0;
-      animation: float-particle 4s ease-in-out infinite;
-    }
-    
-    @keyframes float-particle {
-      0% {
-        opacity: 0;
-        transform: translateY(0) translateX(0);
-      }
-      25% {
-        opacity: 1;
-      }
-      75% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-100px) translateX(50px);
-      }
-    }
-    
-    /* Form Input Styles */
-    .form-input, .form-textarea {
-      background: rgba(17, 24, 39, 0.6) !important;
-      border: 1px solid rgba(59, 130, 246, 0.2) !important;
-      border-radius: 8px !important;
-      padding: 0.75rem 1rem !important;
-      color: #f9fafb !important;
-      transition: all 0.3s ease !important;
-      width: 100% !important;
-    }
-    
-    .form-input:focus, .form-textarea:focus {
-      outline: none !important;
-      border-color: rgba(59, 130, 246, 0.6) !important;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
-    }
-    
-    .form-input::placeholder, .form-textarea::placeholder {
-      color: #6b7280 !important;
-    }
-    
-    /* Success Message Animation */
-    .success-message {
-      animation: slideInDown 0.5s ease-out;
-    }
-    
-    @keyframes slideInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
     }
     
     /* Mobile Responsive */
@@ -438,10 +270,6 @@
         width: 45px;
         height: 45px;
       }
-      
-      .typing-text {
-        font-size: 1.2rem;
-      }
     }
     
     @media (max-width: 640px) {
@@ -452,654 +280,607 @@
   </style>
 </head>
 <body>
-  <!-- Animated Background -->
-  <div class="animated-bg"></div>
-
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="container">
-      <div class="flex items-center justify-between py-4">
-        <a href="#" class="text-2xl font-bold">
-          <span class="text-blue-400">Ravindu</span><span class="text-white">.dev</span>
-        </a>
-        
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex items-center gap-8">
-          <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
-          <a href="#skills" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Skills</a>
-          <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Projects</a>
-          <a href="#contact" class="btn btn-primary">Contact Me</a>
-        </div>
-        
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden text-white">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
+  <!-- Top Navigation -->
+  <header class="sticky-nav">
+    <div class="container flex items-center justify-between py-4">
+      <a href="#" class="text-xl font-extrabold tracking-tight">Ravindu<span class="text-violet-400">.</span></a>
       
-      <!-- Mobile Menu -->
-      <div id="mobileMenu" class="mobile-menu md:hidden pb-4">
-        <div class="flex flex-col gap-4">
-          <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">About</a>
-          <a href="#skills" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Skills</a>
-          <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors font-medium">Projects</a>
-          <a href="#contact" class="btn btn-primary w-full justify-center">Contact Me</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="container py-20 md:py-32 relative">
-    <!-- Floating Particles -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="particle w-2 h-2 bg-blue-400" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-      <div class="particle w-3 h-3 bg-purple-400" style="top: 40%; left: 20%; animation-delay: 1s;"></div>
-      <div class="particle w-2 h-2 bg-cyan-400" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
-      <div class="particle w-4 h-4 bg-blue-500" style="top: 30%; left: 70%; animation-delay: 1.5s;"></div>
-      <div class="particle w-2 h-2 bg-purple-500" style="top: 70%; left: 30%; animation-delay: 2.5s;"></div>
+      <!-- Desktop Navigation -->
+      <nav class="hidden sm:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#about" class="hover:text-white transition-colors duration-200">About</a>
+        <a href="#skills" class="hover:text-white transition-colors duration-200">Skills</a>
+        <a href="#projects" class="hover:text-white transition-colors duration-200">Projects</a>
+        <a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a>
+      </nav>
+      
+      <!-- Desktop GitHub Button -->
+      <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="hidden sm:block text-sm px-3 py-1.5 rounded-md btn-secondary">GitHub</a>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="sm:hidden text-slate-300 hover:text-white p-2">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
     
-    <div class="max-w-4xl mx-auto text-center fade-in relative z-10">
-      <div class="mb-8 relative inline-block">
-        <img src="2.jpg" alt="Ravindu Wanasinghe" class="profile-image w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-blue-500" />
-        <!-- Orbiting Dots -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div class="absolute w-3 h-3 bg-blue-400 rounded-full" style="top: 10%; left: 50%; animation: orbit 4s linear infinite;"></div>
-          <div class="absolute w-2 h-2 bg-purple-400 rounded-full" style="top: 50%; left: 10%; animation: orbit 3s linear infinite reverse;"></div>
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="sm:hidden hidden border-t border-white/10">
+      <div class="container py-4 space-y-4">
+        <a href="#about" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">About</a>
+        <a href="#skills" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">Skills</a>
+        <a href="#projects" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">Projects</a>
+        <a href="#contact" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">Contact</a>
+        <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="inline-block text-sm px-3 py-2 rounded-md btn-secondary mt-2">GitHub Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative">
+    <div class="container py-20 md:py-28">
+      <div class="relative glass ring-gradient overflow-hidden p-8 md:p-14">
+        <div class="orb a"></div>
+        <div class="orb b"></div>
+        <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+          <div class="fade-in-up">
+            <p class="text-sm uppercase tracking-widest text-cyan-300/80 mb-3">Information Systems Student</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-300">Ravindu Wanasinghe</span></h1>
+            <p class="text-slate-300 text-lg md:text-xl mb-8">I enjoy building clean, responsive UIs and exploring data, systems, and software fundamentals. Currently learning Java, web development, and databases.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#projects" class="btn-primary text-white px-5 py-3 rounded-md text-sm font-semibold shadow-lg">View Projects</a>
+              <a href="#contact" class="btn-secondary text-white px-5 py-3 rounded-md text-sm font-semibold">Contact Me</a>
+            </div>
+          </div>
+          <div class="flex justify-center md:justify-end fade-in-up">
+            <img src="2.jpg" alt="Ravindu Portrait" class="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-violet-500/40 shadow-xl profile-glow" />
+          </div>
         </div>
-      </div>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-        Hi, I'm <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 text-transparent bg-clip-text glow-text">Ravindu Wanasinghe</span>
-      </h1>
-      <div class="text-lg md:text-xl text-gray-300 mb-4 max-w-2xl mx-auto">
-        <span class="typing-text">Full Stack Developer & Information Systems Student</span>
-      </div>
-      <p class="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-        Passionate about building modern web applications with TypeScript, Java, and cutting-edge technologies. Currently pursuing BSc in Information Systems at Sabaragamuwa University.
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="btn btn-secondary">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="btn btn-secondary">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-          LinkedIn
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="container py-16">
-    <h2 class="section-title fade-in">About Me</h2>
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <div class="card p-8 fade-in fade-in-delay-1">
-        <div class="text-4xl mb-4">🎯</div>
-        <h3 class="text-2xl font-bold mb-4 text-blue-400">My Journey</h3>
-        <p class="text-gray-300 leading-relaxed mb-4">
-          I'm a first-year Information Systems student at Sabaragamuwa University of Sri Lanka, passionate about creating innovative solutions through technology.
-        </p>
-        <p class="text-gray-300 leading-relaxed">
-          My focus is on full-stack development, building scalable applications, and exploring the intersection of technology and business.
-        </p>
+  <!-- About -->
+  <section id="about" class="fade-in-up">
+    <div class="container py-10">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-8">About Me</h2>
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="fade-in-left">
+            <div class="glass ring-gradient p-8">
+              <h3 class="text-2xl font-bold mb-4 text-violet-300">🎯 My Journey</h3>
+              <p class="text-slate-300 leading-relaxed mb-4">I'm a passionate first-year Information Systems student at Sabaragamuwa University of Sri Lanka, diving deep into the foundations of technology and problem-solving.</p>
+              <p class="text-slate-300 leading-relaxed">What excites me most is how information systems can be designed to create efficient, user-centric solutions that make a real impact.</p>
+            </div>
+          </div>
+          <div class="fade-in-right">
+            <div class="glass ring-gradient p-8">
+              <h3 class="text-2xl font-bold mb-4 text-cyan-300">🚀 What I'm Learning</h3>
+              <ul class="text-slate-300 space-y-3">
+                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-violet-400 rounded-full pulse"></span>Core programming concepts (Java, Python, JavaScript)</li>
+                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-cyan-400 rounded-full pulse"></span>Database fundamentals and SQL</li>
+                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-orange-400 rounded-full pulse"></span>Modern web development (HTML5, CSS3, responsive design)</li>
+                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full pulse"></span>System analysis and design principles</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="fade-in-up">
+    <div class="container py-10">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div class="glass ring-gradient p-5 text-center skill-card">
+          <h3 class="font-semibold text-violet-300 mb-2">Programming</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="chip px-3 py-1 rounded-full">Java (Basic)</span>
+            <span class="chip px-3 py-1 rounded-full">Python (Basic)</span>
+            <span class="chip px-3 py-1 rounded-full">JavaScript</span>
+          </div>
+        </div>
+        <div class="glass ring-gradient p-5 text-center skill-card">
+          <h3 class="font-semibold text-violet-300 mb-2">Web</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="chip px-3 py-1 rounded-full">HTML</span>
+            <span class="chip px-3 py-1 rounded-full">CSS</span>
+            <span class="chip px-3 py-1 rounded-full">Tailwind</span>
+          </div>
+        </div>
+        <div class="glass ring-gradient p-5 text-center skill-card">
+          <h3 class="font-semibold text-violet-300 mb-2">Data & Tools</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="chip px-3 py-1 rounded-full">MySQL</span>
+            <span class="chip px-3 py-1 rounded-full">Git/GitHub</span>
+            <span class="chip px-3 py-1 rounded-full">VS Code</span>
+          </div>
+        </div>
+        <div class="glass ring-gradient p-5 text-center skill-card">
+          <h3 class="font-semibold text-violet-300 mb-2">Soft Skills</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="chip px-3 py-1 rounded-full">Problem Solving</span>
+            <span class="chip px-3 py-1 rounded-full">Teamwork</span>
+            <span class="chip px-3 py-1 rounded-full">Communication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section id="projects" class="fade-in-up">
+    <div class="container py-10">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Featured Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Elite Wheels -->
+        <article class="glass ring-gradient overflow-hidden project-card fade-in-up">
+          <img src="1.png" alt="Elite Wheels - Car Dealership Website Screenshot" class="w-full h-44 object-cover" />
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <h3 class="text-xl font-bold">Elite Wheels</h3>
+              <span class="text-xs bg-violet-600 text-white px-2 py-1 rounded-full">⭐ Featured</span>
+            </div>
+            <p class="text-slate-300 mb-3">🚗 A sleek car dealership website showcasing top car brands with responsive design, stylish aesthetics, and easy navigation for an engaging user experience. My first web development project!</p>
+            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
+              <span>📅 Oct 2024</span>
+              <span>•</span>
+              <span>📈 9.4KB</span>
+              <span>•</span>
+              <span>🌟 With GitHub Pages</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4 text-xs">
+              <span class="chip px-2.5 py-1 rounded-full">HTML5</span>
+              <span class="chip px-2.5 py-1 rounded-full">CSS3</span>
+              <span class="chip px-2.5 py-1 rounded-full">JavaScript</span>
+              <span class="chip px-2.5 py-1 rounded-full">Responsive</span>
+            </div>
+            <div class="flex gap-3">
+              <a target="_blank" href="https://ravinduwanasinghe0524.github.io/Elite-Wheels/" class="btn-primary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
+                <span>🔗</span> Live Demo
+              </a>
+              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/Elite-Wheels" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
+                <span>💻</span> Code
+              </a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Royal Mushrooms -->
+        <article class="glass ring-gradient overflow-hidden project-card fade-in-up">
+          <img src="10.png" alt="Royal Mushrooms Frontend Screenshot" class="w-full h-44 object-cover" />
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <h3 class="text-xl font-bold">Royal Mushrooms</h3>
+              <span class="text-xs bg-cyan-600 text-white px-2 py-1 rounded-full">🍄 Frontend</span>
+            </div>
+            <p class="text-slate-300 mb-3">Modern JavaScript frontend application with clean architecture and GitHub Pages deployment. Focused on user experience and responsive design patterns.</p>
+            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
+              <span>📅 Aug 2025</span>
+              <span>•</span>
+              <span>📈 4.7KB</span>
+              <span>•</span>
+              <span>🌟 Active Development</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4 text-xs">
+              <span class="chip px-2.5 py-1 rounded-full">JavaScript</span>
+              <span class="chip px-2.5 py-1 rounded-full">HTML5</span>
+              <span class="chip px-2.5 py-1 rounded-full">CSS3</span>
+              <span class="chip px-2.5 py-1 rounded-full">GitHub Pages</span>
+            </div>
+            <div class="flex gap-3">
+              <a target="_blank" href="https://ravinduwanasinghe0524.github.io/royal-mushrooms-frontend/" class="btn-primary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
+                <span>🔗</span> Live Demo
+              </a>
+              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/royal-mushrooms-frontend" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
+                <span>💻</span> Code
+              </a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Car Racing Game -->
+        <article class="glass ring-gradient overflow-hidden project-card fade-in-up">
+          <img src="6.png" alt="3D Car Racing Game Screenshot" class="w-full h-44 object-cover" />
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <h3 class="text-xl font-bold">3D Car Racing Game</h3>
+              <span class="text-xs bg-orange-600 text-white px-2 py-1 rounded-full">🎮 Game</span>
+            </div>
+            <p class="text-slate-300 mb-3">🏁 A fun 3D car racing game built with Java Swing featuring realistic physics engine, dynamic obstacles, smooth 60 FPS gameplay, and MIT license for open-source learning.</p>
+            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
+              <span>📅 Aug 2025</span>
+              <span>•</span>
+              <span>📈 13KB</span>
+              <span>•</span>
+              <span>⚖️ MIT License</span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4 text-xs">
+              <span class="chip px-2.5 py-1 rounded-full">Java</span>
+              <span class="chip px-2.5 py-1 rounded-full">Swing</span>
+              <span class="chip px-2.5 py-1 rounded-full">Game Physics</span>
+              <span class="chip px-2.5 py-1 rounded-full">60 FPS</span>
+            </div>
+            <div class="flex gap-3">
+              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/car-racing-game" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
+                <span>💻</span> Code
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
       
-      <div class="card p-8 fade-in fade-in-delay-2">
-        <div class="text-4xl mb-4">🚀</div>
-        <h3 class="text-2xl font-bold mb-4 text-purple-400">What I Do</h3>
-        <ul class="space-y-3 text-gray-300">
-          <li class="flex items-start gap-3">
-            <span class="text-blue-400 mt-1">▹</span>
-            <span>Full-stack web development with modern frameworks</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-400 mt-1">▹</span>
-            <span>Backend development with Java and Node.js</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-400 mt-1">▹</span>
-            <span>Database design and management</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-400 mt-1">▹</span>
-            <span>Collaborative problem-solving and system design</span>
-          </li>
+      <div class="text-center mt-12">
+        <div class="glass ring-gradient p-6 max-w-2xl mx-auto">
+          <h3 class="text-xl font-semibold mb-3">💡 Want to see more?</h3>
+          <p class="text-slate-300 mb-4">Check out my GitHub profile for more projects, code samples, and contributions to open-source repositories.</p>
+          <a target="_blank" href="https://github.com/RavinduWanasinghe0524" class="btn-primary text-white px-6 py-3 rounded-md font-semibold inline-flex items-center gap-2">
+            <span>🚀</span> Explore GitHub Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="fade-in-up">
+    <div class="container py-10">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-6">Education</h2>
+      <div class="max-w-3xl mx-auto glass ring-gradient p-6">
+        <h3 class="text-xl font-semibold">BSc (Hons) in Information Systems</h3>
+        <p class="text-slate-300">Sabaragamuwa University of Sri Lanka • 2024 - 2028</p>
+        <ul class="list-disc list-inside text-slate-300 mt-3">
+          <li>Foundations: Programming, Data Structures, Database Management Systems</li>
+          <li>Active in tech clubs and workshops</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="container py-16">
-    <h2 class="section-title fade-in">Skills & Technologies</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-      <div class="card p-6 text-center fade-in fade-in-delay-1">
-        <div class="text-3xl mb-3">⚛️</div>
-        <h3 class="font-semibold text-lg mb-3 text-blue-400">Frontend</h3>
-        <div class="flex flex-wrap gap-2 justify-center">
-          <span class="tag">React</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">Next.js</span>
-          <span class="tag">Tailwind</span>
-        </div>
-      </div>
-      
-      <div class="card p-6 text-center fade-in fade-in-delay-2">
-        <div class="text-3xl mb-3">⚙️</div>
-        <h3 class="font-semibold text-lg mb-3 text-purple-400">Backend</h3>
-        <div class="flex flex-wrap gap-2 justify-center">
-          <span class="tag">Java</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Express</span>
-          <span class="tag">Spring</span>
-        </div>
-      </div>
-      
-      <div class="card p-6 text-center fade-in fade-in-delay-3">
-        <div class="text-3xl mb-3">🗄️</div>
-        <h3 class="font-semibold text-lg mb-3 text-cyan-400">Database</h3>
-        <div class="flex flex-wrap gap-2 justify-center">
-          <span class="tag">MySQL</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">PostgreSQL</span>
-        </div>
-      </div>
-      
-      <div class="card p-6 text-center fade-in fade-in-delay-1">
-        <div class="text-3xl mb-3">🛠️</div>
-        <h3 class="font-semibold text-lg mb-3 text-orange-400">Tools</h3>
-        <div class="flex flex-wrap gap-2 justify-center">
-          <span class="tag">Git</span>
-          <span class="tag">VS Code</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Postman</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="container py-16">
-    <h2 class="section-title fade-in">Featured Projects</h2>
-    <div class="grid-auto max-w-6xl mx-auto">
-      
-      <!-- Galagama Gems -->
-      <div class="card fade-in fade-in-delay-1">
-        <img src="8.png" alt="Galagama Gems" class="project-img" />
-        <div class="p-6">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-xl font-bold text-white">Galagama Gems</h3>
-            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-xs font-semibold">⭐ Latest</span>
-          </div>
-          <p class="text-gray-400 mb-4">
-            Modern gem trading platform built with TypeScript featuring real-time inventory management, secure transactions, and responsive design.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">TypeScript</span>
-            <span class="tag">React</span>
-            <span class="tag">Node.js</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://github.com/RavinduWanasinghe0524/Galagama-Gems" target="_blank" class="btn btn-secondary text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Elite Wheels -->
-      <div class="card fade-in fade-in-delay-2">
-        <img src="1.png" alt="Elite Wheels" class="project-img" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">Elite Wheels</h3>
-          <p class="text-gray-400 mb-4">
-            Sleek car dealership website with responsive design, showcasing premium vehicles with an engaging user experience.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">JavaScript</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://ravinduwanasinghe0524.github.io/Elite-Wheels/" target="_blank" class="btn btn-primary text-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-              </svg>
-              Live Demo
-            </a>
-            <a href="https://github.com/RavinduWanasinghe0524/Elite-Wheels" target="_blank" class="btn btn-secondary text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Eco Ceylon -->
-      <div class="card fade-in fade-in-delay-3">
-        <img src="https://via.placeholder.com/400x200/1e293b/3b82f6?text=Eco+Ceylon" alt="Eco Ceylon" class="project-img" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">Eco Ceylon</h3>
-          <p class="text-gray-400 mb-4">
-            Eco-tourism platform for Sri Lanka built with TypeScript, promoting sustainable travel and authentic experiences.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">TypeScript</span>
-            <span class="tag">React</span>
-            <span class="tag">Tailwind</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://github.com/RavinduWanasinghe0524/Eco-Ceylon" target="_blank" class="btn btn-secondary text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Car Racing Game -->
-      <div class="card fade-in fade-in-delay-1">
-        <img src="6.png" alt="Car Racing Game" class="project-img" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">3D Car Racing Game</h3>
-          <p class="text-gray-400 mb-4">
-            Fun 3D racing game built with Java Swing featuring realistic physics, dynamic obstacles, and smooth 60 FPS gameplay.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">Java</span>
-            <span class="tag">Swing</span>
-            <span class="tag">Game Dev</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://github.com/RavinduWanasinghe0524/car-racing-game" target="_blank" class="btn btn-secondary text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- EMS Backend -->
-      <div class="card fade-in fade-in-delay-2">
-        <img src="https://via.placeholder.com/400x200/1e293b/3b82f6?text=EMS+Backend" alt="EMS Backend" class="project-img" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">EMS Backend</h3>
-          <p class="text-gray-400 mb-4">
-            Employee Management System backend with RESTful API, built using Java Spring Boot and MySQL database.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">Java</span>
-            <span class="tag">Spring Boot</span>
-            <span class="tag">MySQL</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://github.com/RavinduWanasinghe0524/ems-backend" target="_blank" class="btn btn-secondary text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- V-Mas -->
-      <div class="card fade-in fade-in-delay-3">
-        <img src="https://via.placeholder.com/400x200/1e293b/3b82f6?text=V-Mas" alt="V-Mas" class="project-img" />
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-white mb-3">V-Mas</h3>
-          <p class="text-gray-400 mb-4">
-            Full-featured web application built with modern JavaScript frameworks and best practices.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="https://github.com/RavinduWanasinghe0524/V-Mas" target="_blank" class="btn btn-secondary text-sm">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-              View Code
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- View More Projects -->
-    <div class="text-center mt-12">
-      <a href="https://github.com/RavinduWanasinghe0524?tab=repositories" target="_blank" class="btn btn-primary">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-        </svg>
-        View All Projects on GitHub
-      </a>
-    </div>
-  </section>
-
-  <!-- Contact Section with Form -->
-  <section id="contact" class="container py-16">
-    <h2 class="section-title fade-in">Get In Touch</h2>
-    <div class="max-w-4xl mx-auto">
-      <p class="text-lg text-gray-300 mb-8 text-center">
-        I'm currently open to internships, collaborations, and exciting opportunities. Let's build something amazing together!
-      </p>
-      
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Contact Form -->
-        <div class="card p-8 fade-in fade-in-delay-1">
-          <h3 class="text-2xl font-bold mb-6 text-blue-400">Send Me a Message</h3>
-          <form id="contactForm" class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                required 
-                class="form-input"
-                placeholder="John Doe"
-              />
-            </div>
-            
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                required 
-                class="form-input"
-                placeholder="john@example.com"
-              />
-            </div>
-            
-            <div>
-              <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
-              <input 
-                type="text" 
-                id="subject" 
-                name="subject" 
-                required 
-                class="form-input"
-                placeholder="Project Collaboration"
-              />
-            </div>
-            
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                required 
-                rows="5"
-                class="form-textarea"
-                placeholder="Tell me about your project or idea..."
-              ></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn-primary w-full justify-center">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-              </svg>
-              Send Message
-            </button>
-            
-            <div id="formSuccess" class="hidden success-message p-4 bg-green-500/20 border border-green-500/40 rounded-lg text-green-300 text-center">
-              ✅ Message sent successfully! I'll get back to you soon.
-            </div>
-          </form>
-        </div>
-        
-        <!-- Contact Info -->
-        <div class="space-y-6 fade-in fade-in-delay-2">
-          <div class="card p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">Email</h4>
-                <a href="mailto:ravinduwanasinghe97@gmail.com" class="text-gray-400 hover:text-blue-400 transition-colors">
-                  ravinduwanasinghe97@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">GitHub</h4>
-                <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors">
-                  @RavinduWanasinghe0524
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">LinkedIn</h4>
-                <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                  Ravindu Wanasinghe
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="card p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-1">Location</h4>
-                <p class="text-gray-400">
-                  Sabaragamuwa University<br/>
-                  Sri Lanka
-                </p>
-              </div>
-            </div>
-          </div>
+  <!-- Contact -->
+  <section id="contact" class="fade-in-up">
+    <div class="container py-10">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-6">Get in Touch</h2>
+      <div class="max-w-xl mx-auto text-center">
+        <p class="text-slate-300 mb-6">Open to internships, collaborations, and learning opportunities.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="mailto:ravinduwanasinghe97@gmail.com" class="btn-primary text-white px-6 py-3 rounded-md text-sm font-semibold">Email</a>
+          <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="btn-secondary text-white px-6 py-3 rounded-md text-sm font-semibold">GitHub</a>
+          <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="btn-secondary text-white px-6 py-3 rounded-md text-sm font-semibold">LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-gray-800 py-8 mt-16">
-    <div class="container text-center text-gray-400">
-      <p class="mb-2">Built with ❤️ by Ravindu Wanasinghe</p>
-      <p class="text-sm">© 2025 All rights reserved.</p>
+  <footer class="mt-10 border-t border-white/10">
+    <div class="container py-6 text-center text-slate-400">
+      <p>© 2025 Ravindu Wanasinghe. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- Scroll to Top Button -->
-  <div id="scrollTop">
-    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-    </svg>
   </div>
 
+  <!-- Scroll to Top Button -->
+  <button id="scroll-to-top" aria-label="Scroll to top">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+  </button>
+
   <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
+    // Particle System
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
 
-    // Close mobile menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-      });
-    });
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.color = Math.random() > 0.5 ? 'rgba(139,92,246,' : 'rgba(34,211,238,';
+        this.opacity = Math.random() * 0.5 + 0.2;
       }
-    });
 
-    // Scroll to top button
-    const scrollTopBtn = document.getElementById('scrollTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('visible');
-      } else {
-        scrollTopBtn.classList.remove('visible');
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
       }
-    });
 
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Fade in animations on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-
-    // Contact Form Handler
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-    
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          subject: document.getElementById('subject').value,
-          message: document.getElementById('message').value
-        };
-        
-        // In a real application, you would send this data to a server
-        // For now, we'll just show a success message
-        console.log('Form submitted:', formData);
-        
-        // Show success message
-        formSuccess.classList.remove('hidden');
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-          formSuccess.classList.add('hidden');
-        }, 5000);
-        
-        // Optional: Send email using a service like EmailJS or Formspree
-        // Example with EmailJS (you would need to set this up):
-        /*
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
-          .then(() => {
-            formSuccess.classList.remove('hidden');
-            contactForm.reset();
-          })
-          .catch((error) => {
-            console.error('Error sending email:', error);
-          });
-        */
-      });
+      draw() {
+        ctx.fillStyle = this.color + this.opacity + ')';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
     }
 
-    // Add orbit animation to CSS
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes orbit {
-        0% {
-          transform: rotate(0deg) translateX(80px) rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    function initParticles() {
+      particles = [];
+      const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 15000));
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function connectParticles() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 120) {
+            ctx.strokeStyle = 'rgba(139,92,246,' + (0.2 - distance / 600) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
         }
       }
-    `;
-    document.head.appendChild(style);
-    
-    // Add floating animation to skill cards
-    document.querySelectorAll('.card').forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.1}s`;
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      
+      connectParticles();
+      animationId = requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+
+    // Pause animation when page is not visible (performance optimization)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationId);
+      } else {
+        animate();
+      }
+    });
+
+    // Main interactive script
+    document.addEventListener('DOMContentLoaded', async () => {
+      const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+      const scrollToTopButton = document.getElementById('scroll-to-top');
+      const stickyNav = document.querySelector('.sticky-nav');
+
+      // Enhanced Intersection Observer with staggered animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Add staggered delay for multiple elements
+            setTimeout(() => {
+              entry.target.classList.add('active');
+            }, index * 100);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      
+      animatedElements.forEach((el) => observer.observe(el));
+
+      // Add scrolled class to navbar
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          stickyNav.classList.add('scrolled');
+        } else {
+          stickyNav.classList.remove('scrolled');
+        }
+      });
+
+      // Handle smooth scrolling for internal navigation links ONLY
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        const href = anchor.getAttribute('href');
+        const targetElement = document.querySelector(href);
+        
+        if (targetElement) {
+          anchor.addEventListener('click', function (e) {
+            console.log('Internal navigation clicked:', href);
+            e.preventDefault();
+            
+            const headerHeight = document.querySelector('.sticky-nav')?.offsetHeight || 80;
+            const offsetTop = targetElement.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+              top: Math.max(0, offsetTop),
+              behavior: 'smooth'
+            });
+          });
+        }
+      });
+
+      // Debug and ensure external links work properly
+      console.log('Setting up external link handlers...');
+      const externalLinks = document.querySelectorAll('a[href^="http"], a[target="_blank"]');
+      console.log('Found external links:', externalLinks.length);
+      
+      externalLinks.forEach((link, index) => {
+        console.log(`Link ${index + 1}:`, link.href, link.textContent.trim());
+        
+        // Remove any existing event listeners that might interfere
+        link.onclick = null;
+        
+        // Add a simple click handler for debugging
+        link.addEventListener('click', function(e) {
+          console.log('🔗 External link clicked:', this.href);
+          console.log('Target:', this.target);
+          
+          // Force open in new tab for external links
+          if (this.href.startsWith('http')) {
+            e.preventDefault();
+            window.open(this.href, '_blank', 'noopener,noreferrer');
+          }
+        });
+      });
+
+      // Enhanced scroll-to-top with smooth scaling
+      let ticking = false;
+      const updateScrollButton = () => {
+        const scrolled = window.scrollY;
+        const opacity = Math.min(scrolled / 300, 1);
+        
+        if (scrolled > 300) {
+          scrollToTopButton.style.display = 'block';
+          scrollToTopButton.style.opacity = opacity;
+          scrollToTopButton.style.transform = `translateY(${(1 - opacity) * 20}px)`;
+        } else {
+          scrollToTopButton.style.opacity = '0';
+          scrollToTopButton.style.transform = 'translateY(20px)';
+          setTimeout(() => { 
+            if (window.scrollY <= 300) scrollToTopButton.style.display = 'none';
+          }, 300);
+        }
+        ticking = false;
+      };
+      
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollButton);
+          ticking = true;
+        }
+      });
+      
+      scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Dynamic navbar highlighting with smooth transitions
+      const navLinks = Array.from(document.querySelectorAll('header nav a'));
+      const ids = navLinks.map(l => l.getAttribute('href')).filter(Boolean).map(x => x.replace('#',''));
+      const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+      
+      const updateActiveNav = () => {
+        const scrollY = window.scrollY + 120;
+        let activeIndex = 0;
+        
+        sections.forEach((section, i) => {
+          if (section && section.offsetTop <= scrollY) {
+            activeIndex = i;
+          }
+        });
+        
+        navLinks.forEach((link, i) => {
+          if (i === activeIndex) {
+            link.classList.add('text-white');
+            link.classList.remove('text-slate-300');
+          } else {
+            link.classList.remove('text-white');
+            link.classList.add('text-slate-300');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', updateActiveNav);
+      updateActiveNav(); // Initial call
+
+      // Add hover effects to project cards with 3D tilt
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 20;
+          const rotateY = (centerX - x) / 20;
+          
+          card.style.transform = `translateY(-12px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
+        });
+      });
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          console.log('Mobile menu toggled');
+        });
+        
+        // Close mobile menu when a navigation link is clicked
+        mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            console.log('Mobile menu closed after navigation');
+          });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      }
+
+      // Fetch and display GitHub stats (optional enhancement)
+      try {
+        const res = await fetch('https://api.github.com/users/RavinduWanasinghe0524/repos');
+        if (res.ok) {
+          const repos = await res.json();
+          const recentRepos = repos.sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0,5);
+          console.log('🚀 Recent repositories:', recentRepos.map(r => `${r.name} (${r.language || 'Mixed'})`));
+          
+          // Optional: Display total repos count in footer or somewhere
+          const totalRepos = repos.length;
+          console.log(`📊 Total public repositories: ${totalRepos}`);
+        }
+      } catch (e) { 
+        console.log('GitHub API unavailable');
+      }
+
+      // Easter egg: Konami code for special effect
+      let konamiCode = [];
+      const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+      
+      document.addEventListener('keydown', (e) => {
+        konamiCode.push(e.key);
+        konamiCode.splice(-konamiSequence.length - 1, konamiCode.length - konamiSequence.length);
+        
+        if (konamiCode.join('').includes(konamiSequence.join(''))) {
+          document.body.style.animation = 'rainbow 2s linear infinite';
+          setTimeout(() => {
+            document.body.style.animation = '';
+          }, 5000);
+        }
+      });
+
+      // Add rainbow animation for easter egg
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes rainbow {
+          0% { filter: hue-rotate(0deg); }
+          100% { filter: hue-rotate(360deg); }
+        }
+      `;
+      document.head.appendChild(style);
     });
   </script>
 </body>
