@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ravindu Wanasinghe • Developer Portfolio</title>
-  <meta name="description" content="Ravindu Wanasinghe - Information Systems Student & Full Stack Developer. Specializing in TypeScript, Java, and modern web technologies." />
+  <meta name="description" content="Ravindu Wanasinghe - Sabaragamuwa University Information Systems Student & Developer. Specializing in TypeScript, Java, and modern web/AI technologies." />
   <meta property="og:title" content="Ravindu Wanasinghe • Developer Portfolio" />
-  <meta property="og:description" content="Full Stack Developer | Information Systems Student at Sabaragamuwa University" />
+  <meta property="og:description" content="Agentic AI Developer | Cybersecurity | Information Systems Student at Sabaragamuwa University" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ravinduwanasinghe0524.github.io" />
   <link rel="icon" href="2.jpg" />
@@ -18,14 +18,15 @@
 
   <style>
     :root {
-      --bg-primary: #0a0e27;
-      --bg-secondary: #111827;
-      --accent-primary: #3b82f6;
-      --accent-secondary: #06b6d4;
-      --accent-tertiary: #8b5cf6;
-      --text-primary: #f9fafb;
-      --text-secondary: #9ca3af;
-      --border-color: rgba(59, 130, 246, 0.1);
+      --bg-primary: #030712;
+      --bg-secondary: #0b0f19;
+      --bg-tertiary: #111827;
+      --accent-primary: #6366f1; /* Indigo */
+      --accent-secondary: #06b6d4; /* Cyan */
+      --accent-tertiary: #a855f7; /* Purple */
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border-color: rgba(99, 102, 241, 0.15);
     }
     
     * {
@@ -36,7 +37,7 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #111827 50%, #1e293b 100%);
+      background-color: var(--bg-primary);
       color: var(--text-primary);
       overflow-x: hidden;
       line-height: 1.6;
@@ -46,19 +47,20 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
     }
-    
-    /* Animated Background */
-    .animated-bg {
+
+    /* Ambient Pointer Glow */
+    .pointer-glow {
       position: fixed;
-      width: 100%;
-      height: 100%;
       top: 0;
       left: 0;
-      z-index: -1;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(6, 182, 212, 0.03) 45%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: -10;
+      will-change: left, top;
     }
     
     /* Container */
@@ -68,10 +70,10 @@
       padding: 0 1.5rem;
     }
     
-    /* Navbar */
-    nav {
+    /* Header Navigation */
+    header {
       backdrop-filter: blur(20px);
-      background: rgba(10, 14, 39, 0.8);
+      background: rgba(3, 7, 18, 0.75);
       border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
@@ -79,151 +81,163 @@
       transition: all 0.3s ease;
     }
     
-    nav.scrolled {
-      background: rgba(10, 14, 39, 0.95);
-      border-bottom-color: rgba(59, 130, 246, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    header.scrolled {
+      background: rgba(3, 7, 18, 0.95);
+      border-bottom-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
     
-    /* Cards */
-    .card {
-      background: rgba(17, 24, 39, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border-color);
+    /* Glassmorphism */
+    .glass {
+      background: rgba(11, 15, 25, 0.65);
+      backdrop-filter: blur(16px) saturate(120%);
+      -webkit-backdrop-filter: blur(16px) saturate(120%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 16px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
+      position: relative;
     }
     
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(59, 130, 246, 0.4);
-      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+    .ring-gradient {
+      position: relative;
+    }
+    
+    .ring-gradient::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.35) 0%, rgba(6, 182, 212, 0) 50%, rgba(168, 85, 247, 0.35) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    /* Ambient Orbs */
+    .orb {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.15;
+    }
+    .orb.a {
+      background: var(--accent-primary);
+      top: -40px;
+      left: -40px;
+    }
+    .orb.b {
+      background: var(--accent-secondary);
+      bottom: -40px;
+      right: -40px;
     }
     
     /* Buttons */
-    .btn {
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primary) 0%, #4f46e5 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
       font-weight: 600;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
       cursor: pointer;
       border: none;
-      font-size: 0.95rem;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-      color: white;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+      filter: brightness(1.1);
     }
     
     .btn-secondary {
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(99, 102, 241, 0.08);
       color: var(--text-primary);
-      border: 1px solid rgba(59, 130, 246, 0.3);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .btn-secondary:hover {
-      background: rgba(59, 130, 246, 0.2);
-      border-color: rgba(59, 130, 246, 0.5);
-    }
-    
-    /* Tags */
-    .tag {
-      display: inline-block;
-      padding: 0.4rem 0.9rem;
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      color: #93c5fd;
-    }
-    
-    .tag:hover {
-      background: rgba(59, 130, 246, 0.2);
-      border-color: rgba(59, 130, 246, 0.4);
+      background: rgba(99, 102, 241, 0.16);
+      border-color: rgba(99, 102, 241, 0.45);
       transform: translateY(-2px);
     }
     
-    /* Project Image */
+    /* Chips and Tags */
+    .chip {
+      display: inline-block;
+      padding: 0.3rem 0.75rem;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #a5b4fc;
+      transition: all 0.3s ease;
+    }
+    
+    .chip:hover {
+      background: rgba(99, 102, 241, 0.18);
+      border-color: rgba(99, 102, 241, 0.35);
+      transform: translateY(-1.5px);
+      color: white;
+    }
+    
+    /* Project Cards & 3D Interactive Elements */
+    .project-card {
+      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+    
     .project-img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     
-    .card:hover .project-img {
-      transform: scale(1.05);
+    .project-card:hover .project-img {
+      transform: scale(1.06);
     }
     
-    /* Section Title */
+    /* Section Title Gradient */
     .section-title {
       font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #22d3ee 100%);
+      font-weight: 800;
+      background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 50%, #67e8f9 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       text-align: center;
+      letter-spacing: -0.025em;
     }
     
-    /* Scroll Progress */
+    /* Scroll Progress Bar */
     #scroll-progress {
       position: fixed;
       top: 0;
       left: 0;
       width: 0%;
       height: 3px;
-      background: linear-gradient(to right, #3b82f6, #8b5cf6, #06b6d4);
+      background: linear-gradient(to right, var(--accent-primary), var(--accent-tertiary), var(--accent-secondary));
       z-index: 9999;
       transition: width 0.1s ease;
     }
-
-    /* Glow Cards */
-    .glow-card {
-      position: relative;
-    }
-    .glow-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 2px;
-      background: radial-gradient(
-        600px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
-        rgba(139, 92, 246, 0.4),
-        transparent 40%
-      );
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    .glow-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Typing Cursor */
+    
+    /* Cursor pulse */
     .typing-cursor {
       display: inline-block;
-      width: 2px;
-      background-color: #67e8f9;
+      width: 2.5px;
+      background-color: var(--accent-secondary);
       animation: blink 1s step-end infinite;
       margin-left: 4px;
     }
@@ -232,107 +246,138 @@
       50% { opacity: 0; }
     }
 
-    /* Staggered Animations */
+    /* Glow Grid Background */
+    .bg-grid {
+      background-size: 20px 20px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    
+    /* Card mouse glow */
+    .glow-card {
+      position: relative;
+    }
+    .glow-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.5px;
+      background: radial-gradient(
+        400px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+        rgba(99, 102, 241, 0.45),
+        transparent 50%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 5;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .glow-card:hover::before {
+      opacity: 1;
+    }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.25);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(99, 102, 241, 0.45);
+    }
+    
+    /* Animations */
     .fade-in-up, .fade-in-left, .fade-in-right {
       opacity: 0;
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
     
-    .fade-in-up {
-      transform: translateY(40px);
-    }
-    
-    .fade-in-left {
-      transform: translateX(-40px);
-    }
-    
-    .fade-in-right {
-      transform: translateX(40px);
-    }
+    .fade-in-up { transform: translateY(30px); }
+    .fade-in-left { transform: translateX(-30px); }
+    .fade-in-right { transform: translateX(30px); }
     
     .fade-in-up.active, .fade-in-left.active, .fade-in-right.active {
       opacity: 1;
       transform: translate(0, 0);
     }
     
-    /* Responsive Grid */
-    .grid-auto {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
+    /* Profile Image Halo */
+    .profile-glow {
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+      animation: profile-breathe 4s infinite ease-in-out;
     }
-    
-    /* Mobile Menu */
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    
-    .mobile-menu.active {
-      max-height: 400px;
+    @keyframes profile-breathe {
+      0%, 100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.2); border-color: rgba(99, 102, 241, 0.3); }
+      50% { box-shadow: 0 0 45px rgba(6, 182, 212, 0.45); border-color: rgba(6, 182, 212, 0.5); }
     }
     
     /* Scroll to Top Button */
-    #scrollTop {
+    #scroll-to-top {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-primary) 0%, #4f46e5 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
       cursor: pointer;
       opacity: 0;
-      transform: translateY(100px);
-      transition: all 0.3s ease;
+      transform: translateY(20px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 100;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      border: none;
+      outline: none;
     }
     
-    #scrollTop.visible {
+    #scroll-to-top.visible {
       opacity: 1;
       transform: translateY(0);
     }
     
-    #scrollTop:hover {
+    #scroll-to-top:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+      filter: brightness(1.1);
     }
     
-    /* Mobile Responsive */
+    /* Skills card hover */
+    .skill-card {
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+    }
+    
+    /* Mobile responsive */
     @media (max-width: 768px) {
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .container {
-        padding: 0 1rem;
-      }
-      
-      .grid-auto {
-        grid-template-columns: 1fr;
-      }
-      
-      #scrollTop {
-        bottom: 1rem;
-        right: 1rem;
-        width: 45px;
-        height: 45px;
-      }
-    }
-    
-    @media (max-width: 640px) {
-      .section-title {
-        font-size: 1.75rem;
-      }
+      .section-title { font-size: 2rem; }
+      .container { padding: 0 1rem; }
+      #scroll-to-top { bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; }
     }
   </style>
 </head>
 <body>
+  <!-- Ambient Cursor Glow Light -->
+  <div class="pointer-glow" id="pointer-glow"></div>
+
   <!-- Particle Background -->
   <canvas id="particles-canvas" class="fixed top-0 left-0 w-full h-full -z-20 pointer-events-none"></canvas>
 
@@ -341,25 +386,26 @@
 
   <!-- Floating Abstract Background Shapes -->
   <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-violet-600/20 blur-[120px] animate-pulse" style="animation-duration: 8s;"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-600/20 blur-[120px] animate-pulse" style="animation-duration: 10s; animation-delay: 2s;"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[45%] h-[45%] rounded-full bg-violet-600/10 blur-[130px] animate-pulse" style="animation-duration: 9s;"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full bg-cyan-600/10 blur-[130px] animate-pulse" style="animation-duration: 11s; animation-delay: 2.5s;"></div>
   </div>
 
   <!-- Top Navigation -->
   <header class="sticky-nav">
     <div class="container flex items-center justify-between py-4">
-      <a href="#" class="text-xl font-extrabold tracking-tight">Ravindu<span class="text-violet-400">.</span></a>
+      <a href="#" class="text-xl font-extrabold tracking-tight text-white">Ravindu<span class="text-violet-400">.</span></a>
       
       <!-- Desktop Navigation -->
-      <nav class="hidden sm:flex items-center gap-6 text-sm text-slate-300">
+      <nav class="hidden sm:flex items-center gap-8 text-sm font-medium text-slate-300">
         <a href="#about" class="hover:text-white transition-colors duration-200">About</a>
         <a href="#skills" class="hover:text-white transition-colors duration-200">Skills</a>
         <a href="#projects" class="hover:text-white transition-colors duration-200">Projects</a>
+        <a href="#terminal" class="hover:text-white transition-colors duration-200">AI Console</a>
         <a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a>
       </nav>
       
       <!-- Desktop GitHub Button -->
-      <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="hidden sm:block text-sm px-3 py-1.5 rounded-md btn-secondary">GitHub</a>
+      <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="hidden sm:block text-sm px-4 py-1.5 rounded-lg btn-secondary text-white">GitHub</a>
       
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="sm:hidden text-slate-300 hover:text-white p-2">
@@ -370,37 +416,38 @@
     </div>
     
     <!-- Mobile Navigation Menu -->
-    <div id="mobile-menu" class="sm:hidden hidden border-t border-white/10">
-      <div class="container py-4 space-y-4">
+    <div id="mobile-menu" class="sm:hidden hidden border-t border-white/10 bg-slate-950/95">
+      <div class="container py-4 space-y-3">
         <a href="#about" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">About</a>
         <a href="#skills" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">Skills</a>
         <a href="#projects" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">Projects</a>
+        <a href="#terminal" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">AI Console</a>
         <a href="#contact" class="block text-slate-300 hover:text-white py-2 transition-colors duration-200">Contact</a>
-        <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="inline-block text-sm px-3 py-2 rounded-md btn-secondary mt-2">GitHub Profile</a>
+        <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="inline-block text-sm px-4 py-2 rounded-lg btn-secondary text-white mt-2 w-full text-center">GitHub Profile</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="relative">
-    <div class="container py-20 md:py-28">
+    <div class="container py-16 md:py-24">
       <div class="relative glass ring-gradient overflow-hidden p-8 md:p-14">
         <div class="orb a"></div>
         <div class="orb b"></div>
         <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
-          <div class="fade-in-up">
-            <p class="text-sm uppercase tracking-widest text-cyan-300/80 mb-3 h-5 flex items-center">
+          <div class="fade-in-up active">
+            <p class="text-sm uppercase tracking-widest text-cyan-400 mb-3 h-5 flex items-center font-mono">
               <span id="typing-text"></span><span class="typing-cursor">|</span>
             </p>
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-300">Ravindu Wanasinghe</span></h1>
-            <p class="text-slate-300 text-lg md:text-xl mb-8">I enjoy building clean, responsive UIs and exploring data, systems, and software fundamentals. Currently learning Java, web development, and databases.</p>
-            <div class="flex flex-wrap gap-3">
-              <a href="#projects" class="btn-primary text-white px-5 py-3 rounded-md text-sm font-semibold shadow-lg">View Projects</a>
-              <a href="#contact" class="btn-secondary text-white px-5 py-3 rounded-md text-sm font-semibold">Contact Me</a>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-cyan-300">Ravindu Wanasinghe</span></h1>
+            <p class="text-slate-300 text-lg md:text-xl mb-8 leading-relaxed">I build intelligent systems, forensic validation utilities, and clean interfaces. Currently studying Information Systems at Sabaragamuwa University.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#projects" class="btn-primary text-white px-6 py-3 rounded-lg text-sm font-semibold shadow-lg">View Projects</a>
+              <a href="#contact" class="btn-secondary text-white px-6 py-3 rounded-lg text-sm font-semibold">Contact Me</a>
             </div>
           </div>
-          <div class="flex justify-center md:justify-end fade-in-up">
-            <img src="2.jpg" alt="Ravindu Portrait" class="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-violet-500/40 shadow-xl profile-glow" />
+          <div class="flex justify-center md:justify-end fade-in-up active">
+            <img src="2.jpg" alt="Ravindu Portrait" class="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-2 border-indigo-500/30 ring-8 ring-indigo-500/10 shadow-2xl profile-glow" />
           </div>
         </div>
       </div>
@@ -409,25 +456,37 @@
 
   <!-- About -->
   <section id="about" class="fade-in-up">
-    <div class="container py-10">
+    <div class="container py-12">
       <h2 class="section-title text-3xl md:text-4xl text-center mb-8">About Me</h2>
       <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
           <div class="fade-in-left">
-            <div class="glass ring-gradient p-8">
-              <h3 class="text-2xl font-bold mb-4 text-violet-300">🎯 My Journey</h3>
-              <p class="text-slate-300 leading-relaxed mb-4">I'm a passionate first-year Information Systems student at Sabaragamuwa University of Sri Lanka, diving deep into the foundations of technology and problem-solving.</p>
-              <p class="text-slate-300 leading-relaxed">What excites me most is how information systems can be designed to create efficient, user-centric solutions that make a real impact.</p>
+            <div class="glass ring-gradient p-8 h-full">
+              <h3 class="text-2xl font-bold mb-4 text-indigo-300">🎯 My Journey</h3>
+              <p class="text-slate-300 leading-relaxed mb-4">I'm a dedicated first-year Information Systems student at the Sabaragamuwa University of Sri Lanka, exploring how systems design, intelligent code networks, and data architectures connect.</p>
+              <p class="text-slate-300 leading-relaxed">I love creating developer resources, testing security scenarios, and prototyping full stack applications with beautiful, intuitive layouts.</p>
             </div>
           </div>
           <div class="fade-in-right">
-            <div class="glass ring-gradient p-8">
-              <h3 class="text-2xl font-bold mb-4 text-cyan-300">🚀 What I'm Learning</h3>
-              <ul class="text-slate-300 space-y-3">
-                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-violet-400 rounded-full pulse"></span>Core programming concepts (Java, Python, JavaScript)</li>
-                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-cyan-400 rounded-full pulse"></span>Database fundamentals and SQL</li>
-                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-orange-400 rounded-full pulse"></span>Modern web development (HTML5, CSS3, responsive design)</li>
-                <li class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full pulse"></span>System analysis and design principles</li>
+            <div class="glass ring-gradient p-8 h-full">
+              <h3 class="text-2xl font-bold mb-4 text-cyan-300">🚀 Core Explorations</h3>
+              <ul class="text-slate-300 space-y-4">
+                <li class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 bg-indigo-400 rounded-full pulse flex-shrink-0"></span>
+                  <span>Agentic AI Architectures (Custom prompt flows & LLM nodes)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 bg-cyan-400 rounded-full pulse flex-shrink-0"></span>
+                  <span>Digital Document Forensics (Error level analysis & noise modeling)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 bg-purple-400 rounded-full pulse flex-shrink-0"></span>
+                  <span>Web App Frameworks (Next.js, TypeScript, REST APIs)</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <span class="w-2.5 h-2.5 bg-emerald-400 rounded-full pulse flex-shrink-0"></span>
+                  <span>Relational Database Management & SQL analysis</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -438,211 +497,130 @@
 
   <!-- Skills -->
   <section id="skills" class="fade-in-up">
-    <div class="container py-10">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Skills</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        <div class="glass ring-gradient p-5 text-center skill-card glow-card">
-          <h3 class="font-semibold text-violet-300 mb-2">Programming</h3>
-          <div class="flex flex-wrap gap-2 justify-center text-sm">
-            <span class="chip px-3 py-1 rounded-full">TypeScript</span>
-            <span class="chip px-3 py-1 rounded-full">Python</span>
-            <span class="chip px-3 py-1 rounded-full">Java (Basic)</span>
-            <span class="chip px-3 py-1 rounded-full">JavaScript</span>
+    <div class="container py-12">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Skills & Focus</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="glass ring-gradient p-6 text-center skill-card glow-card">
+          <div class="w-12 h-12 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+          </div>
+          <h3 class="font-bold text-white mb-3">Programming</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-xs">
+            <span class="chip">TypeScript</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">Java (Core)</span>
           </div>
         </div>
-        <div class="glass ring-gradient p-5 text-center skill-card glow-card">
-          <h3 class="font-semibold text-violet-300 mb-2">Web</h3>
-          <div class="flex flex-wrap gap-2 justify-center text-sm">
-            <span class="chip px-3 py-1 rounded-full">Next.js</span>
-            <span class="chip px-3 py-1 rounded-full">HTML</span>
-            <span class="chip px-3 py-1 rounded-full">CSS</span>
-            <span class="chip px-3 py-1 rounded-full">Tailwind</span>
+        
+        <div class="glass ring-gradient p-6 text-center skill-card glow-card">
+          <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h2.945M11 20.935V19a2 2 0 012-2h1.5a2.5 2.5 0 002.5-2.5V14a2 2 0 012-2h.5"></path></svg>
+          </div>
+          <h3 class="font-bold text-white mb-3">Web & Frameworks</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-xs">
+            <span class="chip">Next.js</span>
+            <span class="chip">React</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">RESTful APIs</span>
           </div>
         </div>
-        <div class="glass ring-gradient p-5 text-center skill-card glow-card">
-          <h3 class="font-semibold text-violet-300 mb-2">Data & Tools</h3>
-          <div class="flex flex-wrap gap-2 justify-center text-sm">
-            <span class="chip px-3 py-1 rounded-full">Agentic AI</span>
-            <span class="chip px-3 py-1 rounded-full">MySQL</span>
-            <span class="chip px-3 py-1 rounded-full">Git/GitHub</span>
-            <span class="chip px-3 py-1 rounded-full">VS Code</span>
+        
+        <div class="glass ring-gradient p-6 text-center skill-card glow-card">
+          <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+          </div>
+          <h3 class="font-bold text-white mb-3">AI & Security</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-xs">
+            <span class="chip">Agentic AI Node</span>
+            <span class="chip">Error Level Analysis</span>
+            <span class="chip">Prompt Engineering</span>
+            <span class="chip">Git / Shell</span>
           </div>
         </div>
-        <div class="glass ring-gradient p-5 text-center skill-card glow-card">
-          <h3 class="font-semibold text-violet-300 mb-2">Soft Skills</h3>
-          <div class="flex flex-wrap gap-2 justify-center text-sm">
-            <span class="chip px-3 py-1 rounded-full">Problem Solving</span>
-            <span class="chip px-3 py-1 rounded-full">Teamwork</span>
-            <span class="chip px-3 py-1 rounded-full">Communication</span>
+        
+        <div class="glass ring-gradient p-6 text-center skill-card glow-card">
+          <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 class="font-bold text-white mb-3">Soft Capabilities</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-xs">
+            <span class="chip">System Logic</span>
+            <span class="chip">Problem Solving</span>
+            <span class="chip">Collaboration</span>
+            <span class="chip">Research</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Projects -->
+  <!-- Interactive Project Section -->
   <section id="projects" class="fade-in-up">
-    <div class="container py-10">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Featured Projects</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Elite Wheels -->
-        <article class="glass ring-gradient overflow-hidden project-card glow-card fade-in-up">
-          <img src="1.png" alt="Elite Wheels - Car Dealership Website Screenshot" class="w-full h-44 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-xl font-bold">Elite Wheels</h3>
-              <span class="text-xs bg-violet-600 text-white px-2 py-1 rounded-full">⭐ Featured</span>
-            </div>
-            <p class="text-slate-300 mb-3">🚗 A sleek car dealership website showcasing top car brands with responsive design, stylish aesthetics, and easy navigation for an engaging user experience. My first web development project!</p>
-            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
-              <span>📅 Oct 2024</span>
-              <span>•</span>
-              <span>📈 9.4KB</span>
-              <span>•</span>
-              <span>🌟 With GitHub Pages</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 text-xs">
-              <span class="chip px-2.5 py-1 rounded-full">HTML5</span>
-              <span class="chip px-2.5 py-1 rounded-full">CSS3</span>
-              <span class="chip px-2.5 py-1 rounded-full">JavaScript</span>
-              <span class="chip px-2.5 py-1 rounded-full">Responsive</span>
-            </div>
-            <div class="flex gap-3">
-              <a target="_blank" href="https://ravinduwanasinghe0524.github.io/Elite-Wheels/" class="btn-primary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>🔗</span> Live Demo
-              </a>
-              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/Elite-Wheels" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>💻</span> Code
-              </a>
-            </div>
-          </div>
-        </article>
-        
-        <!-- Royal Mushrooms -->
-        <article class="glass ring-gradient overflow-hidden project-card glow-card fade-in-up">
-          <img src="10.png" alt="Royal Mushrooms Frontend Screenshot" class="w-full h-44 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-xl font-bold">Royal Mushrooms</h3>
-              <span class="text-xs bg-cyan-600 text-white px-2 py-1 rounded-full">🍄 Frontend</span>
-            </div>
-            <p class="text-slate-300 mb-3">Modern JavaScript frontend application with clean architecture and GitHub Pages deployment. Focused on user experience and responsive design patterns.</p>
-            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
-              <span>📅 Aug 2025</span>
-              <span>•</span>
-              <span>📈 4.7KB</span>
-              <span>•</span>
-              <span>🌟 Active Development</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 text-xs">
-              <span class="chip px-2.5 py-1 rounded-full">JavaScript</span>
-              <span class="chip px-2.5 py-1 rounded-full">HTML5</span>
-              <span class="chip px-2.5 py-1 rounded-full">CSS3</span>
-              <span class="chip px-2.5 py-1 rounded-full">GitHub Pages</span>
-            </div>
-            <div class="flex gap-3">
-              <a target="_blank" href="https://ravinduwanasinghe0524.github.io/royal-mushrooms-frontend/" class="btn-primary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>🔗</span> Live Demo
-              </a>
-              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/royal-mushrooms-frontend" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>💻</span> Code
-              </a>
-            </div>
-          </div>
-        </article>
-        
-        <!-- Car Racing Game -->
-        <article class="glass ring-gradient overflow-hidden project-card glow-card fade-in-up">
-          <img src="6.png" alt="3D Car Racing Game Screenshot" class="w-full h-44 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-xl font-bold">3D Car Racing Game</h3>
-              <span class="text-xs bg-orange-600 text-white px-2 py-1 rounded-full">🎮 Game</span>
-            </div>
-            <p class="text-slate-300 mb-3">🏁 A fun 3D car racing game built with Java Swing featuring realistic physics engine, dynamic obstacles, smooth 60 FPS gameplay, and MIT license for open-source learning.</p>
-            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
-              <span>📅 Aug 2025</span>
-              <span>•</span>
-              <span>📈 13KB</span>
-              <span>•</span>
-              <span>⚖️ MIT License</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 text-xs">
-              <span class="chip px-2.5 py-1 rounded-full">Java</span>
-              <span class="chip px-2.5 py-1 rounded-full">Swing</span>
-              <span class="chip px-2.5 py-1 rounded-full">Game Physics</span>
-              <span class="chip px-2.5 py-1 rounded-full">60 FPS</span>
-            </div>
-            <div class="flex gap-3">
-              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/car-racing-game" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>💻</span> Code
-              </a>
-            </div>
-          </div>
-        </article>
-        
-        <!-- TrueTrace -->
-        <article class="glass ring-gradient overflow-hidden project-card glow-card fade-in-up">
-          <img src="truetrace.png" alt="TrueTrace Dashboard Mockup" class="w-full h-44 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-xl font-bold">TrueTrace</h3>
-              <span class="text-xs bg-violet-600 text-white px-2 py-1 rounded-full">🔍 Forensics</span>
-            </div>
-            <p class="text-slate-300 mb-3">A multi-modal digital forensic tool for detecting document forgery. Uses Error Level Analysis (ELA), Noise Variance, and Metadata inspection to validate documents.</p>
-            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
-              <span>📅 Feb 2026</span>
-              <span>•</span>
-              <span>🌟 Advanced</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 text-xs">
-              <span class="chip px-2.5 py-1 rounded-full">TypeScript</span>
-              <span class="chip px-2.5 py-1 rounded-full">Digital Forensics</span>
-              <span class="chip px-2.5 py-1 rounded-full">ELA</span>
-            </div>
-            <div class="flex gap-3">
-              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/TrueTrace" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>💻</span> Code
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- ShadowSense-2026-Aurora -->
-        <article class="glass ring-gradient overflow-hidden project-card glow-card fade-in-up">
-          <img src="shadowsense.png" alt="ShadowSense Dashboard Mockup" class="w-full h-44 object-cover" />
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-2">
-              <h3 class="text-xl font-bold">ShadowSense Aurora</h3>
-              <span class="text-xs bg-cyan-600 text-white px-2 py-1 rounded-full">🛡️ Cyber AI</span>
-            </div>
-            <p class="text-slate-300 mb-3">An innovative Agentic System designed to proactively detect and prevent complex social engineering attempts using advanced AI analysis nodes.</p>
-            <div class="flex items-center gap-2 mb-4 text-xs text-slate-400">
-              <span>📅 May 2026</span>
-              <span>•</span>
-              <span>🌟 Cutting-Edge</span>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-4 text-xs">
-              <span class="chip px-2.5 py-1 rounded-full">Agentic AI</span>
-              <span class="chip px-2.5 py-1 rounded-full">Cybersecurity</span>
-              <span class="chip px-2.5 py-1 rounded-full">Social Engineering</span>
-            </div>
-            <div class="flex gap-3">
-              <a target="_blank" href="https://github.com/RavinduWanasinghe0524/ShadowSense-2026-Aurora" class="btn-secondary text-white px-4 py-2 rounded-md text-sm flex items-center gap-2">
-                <span>💻</span> Code
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
+    <div class="container py-12">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-4">My Project Showcase</h2>
+      <p class="text-slate-400 text-center max-w-xl mx-auto mb-10 text-sm">Explore my GitHub repositories. Filter by category or search for specific languages and libraries.</p>
       
-      <div class="text-center mt-12">
-        <div class="glass ring-gradient p-6 max-w-2xl mx-auto">
-          <h3 class="text-xl font-semibold mb-3">💡 Want to see more?</h3>
-          <p class="text-slate-300 mb-4">Check out my GitHub profile for more projects, code samples, and contributions to open-source repositories.</p>
-          <a target="_blank" href="https://github.com/RavinduWanasinghe0524" class="btn-primary text-white px-6 py-3 rounded-md font-semibold inline-flex items-center gap-2">
-            <span>🚀</span> Explore GitHub Profile
-          </a>
+      <!-- Filter Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap bg-slate-900/60 p-1 border border-white/5 rounded-xl">
+          <button onclick="setCategory('all')" id="tab-all" class="category-tab px-4 py-2 text-xs font-semibold rounded-lg transition-all text-white bg-violet-600/90">All Projects</button>
+          <button onclick="setCategory('ai-cyber')" id="tab-ai-cyber" class="category-tab px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-white">AI & Cybersecurity</button>
+          <button onclick="setCategory('web')" id="tab-web" class="category-tab px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-white">Web & Fullstack</button>
+          <button onclick="setCategory('games-utilities')" id="tab-games-utilities" class="category-tab px-4 py-2 text-xs font-semibold rounded-lg transition-all text-slate-400 hover:text-white">Games & Utilities</button>
+        </div>
+        
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-64">
+          <input type="text" id="project-search" placeholder="Search projects or tags..." class="w-full bg-slate-950/60 border border-white/10 rounded-xl px-4 py-2.5 pl-10 text-sm text-white placeholder-slate-400 outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 transition-all" />
+          <span class="absolute left-3.5 top-3 text-slate-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Dynamic Projects Grid -->
+      <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered Dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Terminal Section -->
+  <section id="terminal" class="py-12 fade-in-up">
+    <div class="container max-w-4xl">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-4">Interactive AI Terminal</h2>
+      <p class="text-slate-400 text-center max-w-lg mx-auto mb-8 text-sm">Access core information, trigger retro streams, and interface directly with my system configurations below.</p>
+      
+      <div class="glass border border-indigo-500/20 rounded-xl overflow-hidden shadow-2xl">
+        <!-- Terminal Header -->
+        <div class="bg-slate-900/90 px-4 py-3 border-b border-white/5 flex items-center justify-between text-xs text-slate-400 select-none">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/50 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/50 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/50 inline-block"></span>
+            <span class="ml-2 font-mono text-slate-300">visitor@ravindu-node:~</span>
+          </div>
+          <div class="font-mono text-indigo-400 tracking-wider">AGENTIC-CLI v3.5</div>
+        </div>
+        <!-- Terminal Output Screen -->
+        <div id="terminal-body" class="p-6 font-mono text-sm h-80 overflow-y-auto bg-slate-950/95 text-cyan-400 space-y-2 select-text">
+          <div class="text-slate-500">// Welcome to Ravindu's Agentic CLI Console. Type 'help' for commands.</div>
+          <div class="text-indigo-300">visitor@ravindu-node:~$ <span class="text-white">system_init --verbose</span></div>
+          <div class="text-emerald-400">● core_modules_active: TRUE</div>
+          <div class="text-emerald-400">● current_learning_path: BSc_Information_Systems_SUSL</div>
+          <div class="text-emerald-400">● primary_focus: Agentic_AI & cybersecurity_forgery</div>
+          <div class="text-slate-400">Ready for visitor interaction. Type command...</div>
+          
+          <div class="terminal-output-container space-y-2"></div>
+          
+          <div class="flex items-center gap-2 mt-4 text-white">
+            <span class="text-indigo-400 flex-shrink-0 select-none">visitor@ravindu-node:~$</span>
+            <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-white w-full caret-indigo-500" autocomplete="off" />
+          </div>
         </div>
       </div>
     </div>
@@ -650,14 +628,20 @@
 
   <!-- Education -->
   <section id="education" class="fade-in-up">
-    <div class="container py-10">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-6">Education</h2>
-      <div class="max-w-3xl mx-auto glass ring-gradient p-6">
-        <h3 class="text-xl font-semibold">BSc (Hons) in Information Systems</h3>
-        <p class="text-slate-300">Sabaragamuwa University of Sri Lanka • 2024 - 2028</p>
-        <ul class="list-disc list-inside text-slate-300 mt-3">
-          <li>Foundations: Programming, Data Structures, Database Management Systems</li>
-          <li>Active in tech clubs and workshops</li>
+    <div class="container py-12">
+      <h2 class="section-title text-3xl md:text-4xl text-center mb-8">Education</h2>
+      <div class="max-w-3xl mx-auto glass ring-gradient p-8">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+          <div>
+            <h3 class="text-2xl font-bold text-white">BSc (Hons) in Information Systems</h3>
+            <p class="text-indigo-300 font-semibold text-sm">Sabaragamuwa University of Sri Lanka</p>
+          </div>
+          <span class="text-xs bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-mono px-3 py-1 rounded-full whitespace-nowrap">2024 - 2028</span>
+        </div>
+        <p class="text-slate-300 leading-relaxed mb-4">Focusing on foundational software systems, backend services, algorithmic principles, and system analytics. Exploring modern digital structures and interface accessibility design.</p>
+        <ul class="list-disc list-inside text-slate-400 space-y-2 text-sm">
+          <li>Key coursework: Object-Oriented Java, Database Architectures, Systems Analysis.</li>
+          <li>Engaged in campus tech forums and active software development clubs.</li>
         </ul>
       </div>
     </div>
@@ -665,34 +649,33 @@
 
   <!-- Contact -->
   <section id="contact" class="fade-in-up">
-    <div class="container py-10">
+    <div class="container py-12">
       <h2 class="section-title text-3xl md:text-4xl text-center mb-6">Get in Touch</h2>
       <div class="max-w-xl mx-auto text-center">
-        <p class="text-slate-300 mb-6">Open to internships, collaborations, and learning opportunities.</p>
+        <p class="text-slate-300 mb-8">Open to internships, open-source collaborations, and learning opportunities. Connect with me directly below!</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:ravinduwanasinghe97@gmail.com" class="btn-primary text-white px-6 py-3 rounded-md text-sm font-semibold">Email</a>
-          <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="btn-secondary text-white px-6 py-3 rounded-md text-sm font-semibold">GitHub</a>
-          <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="btn-secondary text-white px-6 py-3 rounded-md text-sm font-semibold">LinkedIn</a>
+          <a href="mailto:ravinduwanasinghe97@gmail.com" class="btn-primary text-white px-6 py-3.5 rounded-xl text-sm font-semibold shadow-lg">Email Me</a>
+          <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="btn-secondary text-white px-6 py-3.5 rounded-xl text-sm font-semibold">GitHub</a>
+          <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="btn-secondary text-white px-6 py-3.5 rounded-xl text-sm font-semibold">LinkedIn</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="mt-10 border-t border-white/10">
-    <div class="container py-6 text-center text-slate-400">
-      <p>© 2025 Ravindu Wanasinghe. All rights reserved.</p>
+  <footer class="mt-12 border-t border-white/10 bg-slate-950/40">
+    <div class="container py-8 text-center text-slate-500 text-sm">
+      <p>© 2026 Ravindu Wanasinghe. Fully styled with cyberpunk aesthetics.</p>
     </div>
   </footer>
-  </div>
 
   <!-- Scroll to Top Button -->
   <button id="scroll-to-top" aria-label="Scroll to top">
-    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
   </button>
 
   <script>
-    // Particle System
+    // Particle Background System
     const canvas = document.getElementById('particles-canvas');
     if (canvas) {
       const ctx = canvas.getContext('2d');
@@ -711,10 +694,10 @@
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
           this.size = Math.random() * 2 + 0.5;
-          this.speedX = (Math.random() - 0.5) * 0.5;
-          this.speedY = (Math.random() - 0.5) * 0.5;
-          this.color = Math.random() > 0.5 ? 'rgba(139,92,246,' : 'rgba(34,211,238,';
-          this.opacity = Math.random() * 0.5 + 0.2;
+          this.speedX = (Math.random() - 0.5) * 0.4;
+          this.speedY = (Math.random() - 0.5) * 0.4;
+          this.color = Math.random() > 0.5 ? 'rgba(99,102,241,' : 'rgba(6,182,212,';
+          this.opacity = Math.random() * 0.4 + 0.15;
         }
 
         update() {
@@ -735,7 +718,7 @@
 
       function initParticles() {
         particles = [];
-        const particleCount = Math.min(100, Math.floor((canvas.width * canvas.height) / 15000));
+        const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 18000));
         for (let i = 0; i < particleCount; i++) {
           particles.push(new Particle());
         }
@@ -748,9 +731,9 @@
             const dy = particles[i].y - particles[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 120) {
-              ctx.strokeStyle = 'rgba(139,92,246,' + (0.2 - distance / 600) + ')';
-              ctx.lineWidth = 0.5;
+            if (distance < 110) {
+              ctx.strokeStyle = 'rgba(99,102,241,' + (0.15 - distance / 700) + ')';
+              ctx.lineWidth = 0.4;
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
@@ -775,7 +758,6 @@
       initParticles();
       animate();
 
-      // Pause animation when page is not visible (performance optimization)
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           cancelAnimationFrame(animationId);
@@ -785,53 +767,325 @@
       });
     }
 
-    // Main interactive script
-    document.addEventListener('DOMContentLoaded', async () => {
-      // Scroll Progress Bar
-      const scrollProgress = document.getElementById('scroll-progress');
-      window.addEventListener('scroll', () => {
-        const totalScroll = document.documentElement.scrollTop;
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scroll = `${(totalScroll / windowHeight) * 100}%`;
-        if (scrollProgress) scrollProgress.style.width = scroll;
-      });
+    // Projects Array - All 14 projects
+    const projectsData = [
+      {
+        id: "shadowsense",
+        title: "ShadowSense Aurora",
+        tagline: "🛡️ Cyber AI",
+        desc: "An innovative Agentic System designed to proactively detect and prevent complex social engineering attempts using advanced multi-agent coordination nodes.",
+        category: "ai-cyber",
+        tech: ["Agentic AI", "Cybersecurity", "Python", "Node.js"],
+        date: "May 2026",
+        status: "Active Development",
+        img: "shadowsense.png",
+        code: "https://github.com/RavinduWanasinghe0524/ShadowSense-2026-Aurora",
+        demo: ""
+      },
+      {
+        id: "truetrace",
+        title: "TrueTrace",
+        tagline: "🔍 Digital Forensics",
+        desc: "A multi-modal digital forensic tool for detecting document forgery. Uses Error Level Analysis (ELA), Noise Variance, and Metadata inspection to validate ID cards and financial documents.",
+        category: "ai-cyber",
+        tech: ["TypeScript", "Digital Forensics", "ELA", "Image Processing"],
+        date: "Feb 2026",
+        status: "Completed",
+        img: "truetrace.png",
+        code: "https://github.com/RavinduWanasinghe0524/TrueTrace",
+        demo: ""
+      },
+      {
+        id: "elitewheels",
+        title: "Elite Wheels (Next.js)",
+        tagline: "🚗 E-Commerce",
+        desc: "A sleek, premium car dealership website showcasing top car brands with responsive design, stylish aesthetics, and easy navigation. Upgraded with a modern Next.js framework.",
+        category: "web",
+        tech: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+        date: "Oct 2024",
+        status: "Featured",
+        img: "1.png",
+        code: "https://github.com/RavinduWanasinghe0524/Elite-Wheels",
+        demo: "https://ravinduwanasinghe0524.github.io/Elite-Wheels/"
+      },
+      {
+        id: "royalmushrooms",
+        title: "Royal Mushrooms",
+        tagline: "🍄 AgroTech Web",
+        desc: "Modern JavaScript frontend application with clean architecture and GitHub Pages deployment. Focused on user experience, catalog searching, and responsive design patterns.",
+        category: "web",
+        tech: ["JavaScript", "HTML5", "CSS3", "GitHub Pages"],
+        date: "Aug 2025",
+        status: "Active Development",
+        img: "10.png",
+        code: "https://github.com/RavinduWanasinghe0524/royal-mushrooms-frontend",
+        demo: "https://ravinduwanasinghe0524.github.io/royal-mushrooms-frontend/"
+      },
+      {
+        id: "carracing",
+        title: "3D Car Racing Game",
+        tagline: "🎮 Swing Game",
+        desc: "A fun 3D car racing game built with Java Swing featuring realistic physics engine, dynamic obstacles, smooth 60 FPS gameplay, and high-fidelity rendering.",
+        category: "games-utilities",
+        tech: ["Java", "Swing", "Game Physics", "60 FPS"],
+        date: "Aug 2025",
+        status: "Completed",
+        img: "6.png",
+        code: "https://github.com/RavinduWanasinghe0524/car-racing-game",
+        demo: ""
+      },
+      {
+        id: "eceylon",
+        title: "Eco-Ceylon",
+        tagline: "🌱 EcoTech",
+        desc: "A sustainable tourism and environmental conservation web application designed to promote eco-friendly travel experiences in Sri Lanka.",
+        category: "web",
+        tech: ["TypeScript", "Tailwind CSS", "Next.js"],
+        date: "2025",
+        status: "Prototype",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/Eco-Ceylon",
+        demo: ""
+      },
+      {
+        id: "galagamagems",
+        title: "Galagama Gems",
+        tagline: "💎 Luxury Trade",
+        desc: "An elegant e-commerce portal showcasing and trading authentic Sri Lankan gems, focusing on high-end visual cards and catalog filtering.",
+        category: "web",
+        tech: ["TypeScript", "Tailwind CSS", "React"],
+        date: "2025",
+        status: "Prototype",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/Galagama-Gems",
+        demo: ""
+      },
+      {
+        id: "reusehub",
+        title: "The Reuse Hub",
+        tagline: "♻️ Sharing Platform",
+        desc: "The Borrowing Station - A community resource sharing web platform encouraging circular economy by enabling local borrowing and lending.",
+        category: "web",
+        tech: ["TypeScript", "React", "CSS3"],
+        date: "2025",
+        status: "Prototype",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/the-reuse-hub",
+        demo: ""
+      },
+      {
+        id: "ironlogix",
+        title: "IronLogix",
+        tagline: "⚙️ Python Automation",
+        desc: "A smart Python system utility for automated system log analysis, regex-based error scanning, and report generation.",
+        category: "games-utilities",
+        tech: ["Python", "Log Analysis", "Regex"],
+        date: "2025",
+        status: "Completed",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/IronLogix",
+        demo: ""
+      },
+      {
+        id: "zen",
+        title: "Zen Productivity",
+        tagline: "🧘 Zen Utilities",
+        desc: "A minimalist python script dashboard for productivity, tracking daily focuses, time-blocking, and clean CLI analytics.",
+        category: "games-utilities",
+        tech: ["Python", "CLI Dashboard", "Analytics"],
+        date: "2025",
+        status: "Completed",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/Zen-",
+        demo: ""
+      },
+      {
+        id: "ems",
+        title: "EMS Backend API",
+        tagline: "☕ Java Service",
+        desc: "Robust Employee Management System backend API demonstrating clean RESTful endpoint designs, user authorization, and SQL database persistence.",
+        category: "web",
+        tech: ["Java", "Spring Boot", "MySQL", "REST API"],
+        date: "2025",
+        status: "Completed",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/ems-backend",
+        demo: ""
+      },
+      {
+        id: "vmas",
+        title: "V-Mas Events",
+        tagline: "🎫 Event Dashboard",
+        desc: "An interactive, client-side web application built for virtual events management, featuring ticket simulation and dashboard controls.",
+        category: "web",
+        tech: ["JavaScript", "CSS3", "HTML5"],
+        date: "2025",
+        status: "Completed",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/V---Mas",
+        demo: ""
+      },
+      {
+        id: "powerfitness",
+        title: "Power Fitness",
+        tagline: "💪 Gym Portal",
+        desc: "A modern, highly visual landing page website for a premium gym, featuring class schedules, trainer highlights, and inquiry forms.",
+        category: "web",
+        tech: ["HTML5", "CSS3", "Responsive Design"],
+        date: "2024",
+        status: "Completed",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/power-fitness",
+        demo: ""
+      },
+      {
+        id: "capstone",
+        title: "Capstone Practice",
+        tagline: "📊 Sabaragamuwa Coursework",
+        desc: "Academic database schema design, SQL queries, and system architectures compiled during database management courseworks.",
+        category: "games-utilities",
+        tech: ["SQL", "Relational DB", "Data Modeling"],
+        date: "2025",
+        status: "Completed",
+        img: "",
+        code: "https://github.com/RavinduWanasinghe0524/CapstonePractice",
+        demo: ""
+      }
+    ];
 
-      // Typing Effect
-      const typingText = document.getElementById('typing-text');
-      if (typingText) {
-        const phrases = ['Information Systems Student', 'Full Stack Developer', 'Cybersecurity Enthusiast', 'Agentic AI Developer'];
-        let phraseIndex = 0;
-        let letterIndex = 0;
-        let isDeleting = false;
+    let currentCategory = 'all';
+    let searchKeyword = '';
 
-        function type() {
-          const currentPhrase = phrases[phraseIndex];
-          
-          if (isDeleting) {
-            typingText.textContent = currentPhrase.substring(0, letterIndex - 1);
-            letterIndex--;
-          } else {
-            typingText.textContent = currentPhrase.substring(0, letterIndex + 1);
-            letterIndex++;
-          }
+    // Render projects grid
+    function renderProjects(filteredProjects) {
+      const container = document.getElementById('projects-grid');
+      if (!container) return;
 
-          let typingSpeed = isDeleting ? 40 : 80;
-
-          if (!isDeleting && letterIndex === currentPhrase.length) {
-            typingSpeed = 2000; // Pause at end
-            isDeleting = true;
-          } else if (isDeleting && letterIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 500; // Pause before typing next
-          }
-
-          setTimeout(type, typingSpeed);
-        }
-        setTimeout(type, 1000);
+      if (filteredProjects.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-16 glass p-8 ring-gradient">
+            <p class="text-slate-400 text-lg mb-4">No projects matched your criteria.</p>
+            <button onclick="resetFilters()" class="btn-primary text-white text-xs px-5 py-2.5 rounded-lg">Reset Filter</button>
+          </div>
+        `;
+        return;
       }
 
-      // Glow effect on cards
+      container.innerHTML = filteredProjects.map(p => {
+        let mediaHtml = '';
+        if (p.img) {
+          mediaHtml = `<img src="${p.img}" alt="${p.title} preview" class="w-full h-44 object-cover project-img" />`;
+        } else {
+          let gradStart = '#6366f1';
+          let gradEnd = '#a855f7';
+          let iconSvg = '';
+
+          if (p.category === 'ai-cyber') {
+            gradStart = '#8b5cf6';
+            gradEnd = '#ec4899';
+            iconSvg = `<svg class="w-12 h-12 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>`;
+          } else if (p.category === 'web') {
+            gradStart = '#3b82f6';
+            gradEnd = '#06b6d4';
+            iconSvg = `<svg class="w-12 h-12 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`;
+          } else {
+            gradStart = '#10b981';
+            gradEnd = '#3b82f6';
+            iconSvg = `<svg class="w-12 h-12 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>`;
+          }
+
+          mediaHtml = `
+            <div class="w-full h-44 flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, ${gradStart}25 0%, ${gradEnd}25 100%)">
+              <div class="absolute inset-0 bg-grid opacity-10"></div>
+              ${iconSvg}
+              <div class="absolute bottom-2.5 right-3 font-mono text-[9px] text-white/30 tracking-wider uppercase">${p.category}</div>
+            </div>
+          `;
+        }
+
+        const techChips = p.tech.map(t => `<span class="chip">${t}</span>`).join('');
+        const demoBtn = p.demo 
+          ? `<a target="_blank" href="${p.demo}" class="btn-primary text-white px-3.5 py-1.5 rounded-lg text-[11px] flex items-center gap-1.5 transition-all">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg> Live Demo
+             </a>` 
+          : '';
+        const codeBtn = `<a target="_blank" href="${p.code}" class="btn-secondary text-white px-3.5 py-1.5 rounded-lg text-[11px] flex items-center gap-1.5 transition-all">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg> Code
+          </a>`;
+        const statusTag = p.status ? `<span class="text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/5 text-slate-400 select-none">${p.status}</span>` : '';
+
+        return `
+          <article class="glass ring-gradient overflow-hidden project-card glow-card flex flex-col justify-between" data-category="${p.category}">
+            <div>
+              ${mediaHtml}
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-white tracking-tight">${p.title}</h3>
+                  <span class="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded whitespace-nowrap uppercase tracking-wider">${p.tagline}</span>
+                </div>
+                <p class="text-slate-300 text-sm mb-4 leading-relaxed">${p.desc}</p>
+              </div>
+            </div>
+            <div class="px-6 pb-6">
+              <div class="flex items-center gap-2 mb-4 text-xs text-slate-400 font-mono">
+                <span>📅 ${p.date}</span>
+                <span>•</span>
+                ${statusTag}
+              </div>
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                ${techChips}
+              </div>
+              <div class="flex gap-2.5">
+                ${demoBtn}
+                ${codeBtn}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      applyCardInteractions();
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('text-white', 'bg-violet-600/90');
+        tab.classList.add('text-slate-400');
+      });
+
+      const activeTab = document.getElementById(`tab-${cat}`);
+      if (activeTab) {
+        activeTab.classList.remove('text-slate-400');
+        activeTab.classList.add('text-white', 'bg-violet-600/90');
+      }
+
+      filterAndRender();
+    }
+
+    function filterAndRender() {
+      const keyword = searchKeyword.toLowerCase().trim();
+      const filtered = projectsData.filter(p => {
+        const matchesCategory = currentCategory === 'all' || p.category === currentCategory;
+        const matchesSearch = keyword === '' || 
+          p.title.toLowerCase().includes(keyword) || 
+          p.desc.toLowerCase().includes(keyword) || 
+          p.tagline.toLowerCase().includes(keyword) || 
+          p.tech.some(t => t.toLowerCase().includes(keyword));
+        return matchesCategory && matchesSearch;
+      });
+      renderProjects(filtered);
+    }
+
+    function resetFilters() {
+      const searchInput = document.getElementById('project-search');
+      if (searchInput) searchInput.value = '';
+      searchKeyword = '';
+      setCategory('all');
+    }
+
+    // Set up card events (mouse tracker & 3D tilt)
+    function applyCardInteractions() {
       document.querySelectorAll('.glow-card').forEach(card => {
         card.addEventListener('mousemove', e => {
           const rect = card.getBoundingClientRect();
@@ -842,226 +1096,292 @@
         });
       });
 
-      const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-      const scrollToTopButton = document.getElementById('scroll-to-top');
-      const stickyNav = document.querySelector('.sticky-nav');
-
-      // Enhanced Intersection Observer with staggered animations
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            // Add staggered delay for multiple elements
-            setTimeout(() => {
-              entry.target.classList.add('active');
-            }, index * 100);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-      
-      animatedElements.forEach((el) => observer.observe(el));
-
-      // Add scrolled class to navbar
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          stickyNav.classList.add('scrolled');
-        } else {
-          stickyNav.classList.remove('scrolled');
-        }
-      });
-
-      // Handle smooth scrolling for internal navigation links ONLY
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        const href = anchor.getAttribute('href');
-        const targetElement = document.querySelector(href);
-        
-        if (targetElement) {
-          anchor.addEventListener('click', function (e) {
-            console.log('Internal navigation clicked:', href);
-            e.preventDefault();
-            
-            const headerHeight = document.querySelector('.sticky-nav')?.offsetHeight || 80;
-            const offsetTop = targetElement.offsetTop - headerHeight - 20;
-            
-            window.scrollTo({
-              top: Math.max(0, offsetTop),
-              behavior: 'smooth'
-            });
-          });
-        }
-      });
-
-      // Debug and ensure external links work properly
-      console.log('Setting up external link handlers...');
-      const externalLinks = document.querySelectorAll('a[href^="http"], a[target="_blank"]');
-      console.log('Found external links:', externalLinks.length);
-      
-      externalLinks.forEach((link, index) => {
-        console.log(`Link ${index + 1}:`, link.href, link.textContent.trim());
-        
-        // Remove any existing event listeners that might interfere
-        link.onclick = null;
-        
-        // Add a simple click handler for debugging
-        link.addEventListener('click', function(e) {
-          console.log('🔗 External link clicked:', this.href);
-          console.log('Target:', this.target);
-          
-          // Force open in new tab for external links
-          if (this.href.startsWith('http')) {
-            e.preventDefault();
-            window.open(this.href, '_blank', 'noopener,noreferrer');
-          }
-        });
-      });
-
-      // Enhanced scroll-to-top with smooth scaling
-      let ticking = false;
-      const updateScrollButton = () => {
-        const scrolled = window.scrollY;
-        const opacity = Math.min(scrolled / 300, 1);
-        
-        if (scrolled > 300) {
-          scrollToTopButton.style.display = 'block';
-          scrollToTopButton.style.opacity = opacity;
-          scrollToTopButton.style.transform = `translateY(${(1 - opacity) * 20}px)`;
-        } else {
-          scrollToTopButton.style.opacity = '0';
-          scrollToTopButton.style.transform = 'translateY(20px)';
-          setTimeout(() => { 
-            if (window.scrollY <= 300) scrollToTopButton.style.display = 'none';
-          }, 300);
-        }
-        ticking = false;
-      };
-      
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(updateScrollButton);
-          ticking = true;
-        }
-      });
-      
-      scrollToTopButton.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Dynamic navbar highlighting with smooth transitions
-      const navLinks = Array.from(document.querySelectorAll('header nav a'));
-      const ids = navLinks.map(l => l.getAttribute('href')).filter(Boolean).map(x => x.replace('#',''));
-      const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-      
-      const updateActiveNav = () => {
-        const scrollY = window.scrollY + 120;
-        let activeIndex = 0;
-        
-        sections.forEach((section, i) => {
-          if (section && section.offsetTop <= scrollY) {
-            activeIndex = i;
-          }
-        });
-        
-        navLinks.forEach((link, i) => {
-          if (i === activeIndex) {
-            link.classList.add('text-white');
-            link.classList.remove('text-slate-300');
-          } else {
-            link.classList.remove('text-white');
-            link.classList.add('text-slate-300');
-          }
-        });
-      };
-      
-      window.addEventListener('scroll', updateActiveNav);
-      updateActiveNav(); // Initial call
-
-      // Add hover effects to project cards with 3D tilt
       document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
+        card.addEventListener('mousemove', e => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
-          
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          
-          const rotateX = (y - centerY) / 20;
-          const rotateY = (centerX - x) / 20;
-          
-          card.style.transform = `translateY(-12px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          const rotateX = (y - centerY) / 25;
+          const rotateY = (centerX - x) / 25;
+          card.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
-        
+
         card.addEventListener('mouseleave', () => {
-          card.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
+          card.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg)';
         });
       });
+    }
 
-      // Mobile menu functionality
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
+    // Interactive Terminal Logic
+    function setupTerminal() {
+      const terminalInput = document.getElementById('terminal-input');
+      const terminalBody = document.getElementById('terminal-body');
+
+      if (!terminalInput || !terminalBody) return;
+
+      terminalInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const cmd = terminalInput.value.trim();
+          terminalInput.value = '';
+
+          const inputLine = document.createElement('div');
+          inputLine.className = 'text-indigo-300 select-none';
+          inputLine.innerHTML = `visitor@ravindu-node:~$ <span class="text-white">${escapeHtml(cmd)}</span>`;
+          
+          const container = terminalBody.querySelector('.terminal-output-container') || terminalBody;
+          container.appendChild(inputLine);
+
+          if (cmd !== '') {
+            const resp = executeTerminalCommand(cmd);
+            if (resp) {
+              const respLine = document.createElement('div');
+              respLine.innerHTML = resp;
+              container.appendChild(respLine);
+            }
+          }
+
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+      });
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function executeTerminalCommand(cmd) {
+      const tokens = cmd.toLowerCase().split(' ');
+      const primary = tokens[0];
+
+      switch(primary) {
+        case 'help':
+          return `
+            <div class="text-slate-400 mt-1 select-none">Available CLI nodes:</div>
+            <div class="grid grid-cols-2 gap-x-6 max-w-md text-xs mt-1 font-mono">
+              <div><span class="text-cyan-300">about</span> - Details about Ravindu</div>
+              <div><span class="text-cyan-300">skills</span> - Skill level matrix</div>
+              <div><span class="text-cyan-300">projects</span> - Top system repositories</div>
+              <div><span class="text-cyan-300">contact</span> - Secure communication nodes</div>
+              <div><span class="text-cyan-300">matrix</span> - Launch decryption screen</div>
+              <div><span class="text-cyan-300">clear</span> - Flush terminal view</div>
+            </div>
+          `;
+        case 'about':
+          return `<div class="text-slate-300 mt-1 leading-relaxed">Ravindu Wanasinghe is a Sabaragamuwa University Information Systems honors candidate. Specializes in designing Agentic AI flow nodes, cybersecurity analysis, and full-stack utilities. Focuses on systems design and forensic details.</div>`;
+        case 'skills':
+          return `
+            <div class="space-y-1 text-xs mt-1 select-none font-mono">
+              <div>TypeScript:   <span class="text-indigo-400">■■■■■■■■■□</span> [90%]</div>
+              <div>JavaScript:   <span class="text-indigo-400">■■■■■■■■■□</span> [90%]</div>
+              <div>Agentic AI:   <span class="text-indigo-400">■■■■■■■■□□</span> [80%]</div>
+              <div>Java Core:    <span class="text-indigo-400">■■■■■■■□□□</span> [70%]</div>
+              <div>Python Core:  <span class="text-indigo-400">■■■■■■■□□□</span> [70%]</div>
+              <div>Next.js/React:<span class="text-indigo-400">■■■■■■■■□□</span> [80%]</div>
+              <div>SQL Databases:<span class="text-indigo-400">■■■■■■■□□□</span> [75%]</div>
+            </div>
+          `;
+        case 'projects':
+          return `
+            <div class="text-slate-400 mt-1 select-none font-mono">Top active systems:</div>
+            <div class="space-y-1 text-xs mt-1 font-mono">
+              <div>📁 <span class="text-emerald-400 font-bold">ShadowSense-2026-Aurora</span> - Social engineering prevention agentic framework.</div>
+              <div>📁 <span class="text-emerald-400 font-bold">TrueTrace</span> - Forensic ELA document forgery inspection code.</div>
+              <div>📁 <span class="text-emerald-400 font-bold">car-racing-game</span> - 3D physics rendering Swing racing system.</div>
+              <div>📁 <span class="text-emerald-400 font-bold">Elite-wheels-next</span> - E-commerce automobile inventory catalog.</div>
+            </div>
+            <div class="text-[10px] text-slate-500 mt-1 select-none font-mono">// Type search filters on the Projects card hub above to view all 14.</div>
+          `;
+        case 'contact':
+          return `
+            <div class="text-slate-300 mt-1 font-mono">
+              Mail: <a href="mailto:ravinduwanasinghe97@gmail.com" class="text-cyan-400 underline hover:text-cyan-300">ravinduwanasinghe97@gmail.com</a><br/>
+              GitHub: <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">github.com/RavinduWanasinghe0524</a><br/>
+              LinkedIn: <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">LinkedIn Profile Link</a>
+            </div>
+          `;
+        case 'clear':
+          const terminalBody = document.getElementById('terminal-body');
+          const container = terminalBody.querySelector('.terminal-output-container') || terminalBody;
+          container.innerHTML = '';
+          return '';
+        case 'matrix':
+          triggerMatrixEffect();
+          return `<div class="text-emerald-500 animate-pulse mt-1 select-none">// STREAMS SYNCHRONIZED. STARTING OVERRIDE...</div>`;
+        default:
+          return `<div class="text-red-400 mt-1 select-none">Command not found: '${escapeHtml(cmd)}'. Type 'help' for instructions.</div>`;
+      }
+    }
+
+    function triggerMatrixEffect() {
+      const terminalBody = document.getElementById('terminal-body');
+      const container = terminalBody.querySelector('.terminal-output-container') || terminalBody;
+      let ticks = 0;
+      const characters = "010101100110011101010001011011011010101010101011";
       
-      if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-          console.log('Mobile menu toggled');
-        });
+      const interval = setInterval(() => {
+        let text = "";
+        for(let i = 0; i < 40; i++) {
+          text += characters[Math.floor(Math.random() * characters.length)];
+        }
+        const line = document.createElement('div');
+        line.className = 'text-emerald-500 font-mono text-xs opacity-75 select-none';
+        line.textContent = text;
+        container.appendChild(line);
+        terminalBody.scrollTop = terminalBody.scrollHeight;
         
-        // Close mobile menu when a navigation link is clicked
+        ticks++;
+        if (ticks > 25) {
+          clearInterval(interval);
+          const done = document.createElement('div');
+          done.className = 'text-emerald-400 font-bold font-mono mt-1 select-none';
+          done.textContent = "[SYSTEM OVERRIDE COMPLETE. SECURE CONNECTION RETAINED]";
+          container.appendChild(done);
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+      }, 100);
+    }
+
+    // Scroll progress, typing text & scroll triggers
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Initial Render
+      renderProjects(projectsData);
+      setupTerminal();
+
+      // 2. Scroll Progress Bar
+      const scrollProgress = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', () => {
+        const total = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = `${(total / height) * 100}%`;
+        if (scrollProgress) scrollProgress.style.width = progress;
+      });
+
+      // 3. Pointer Glow Mouse Move
+      const pointerGlow = document.getElementById('pointer-glow');
+      if (pointerGlow) {
+        document.addEventListener('mousemove', e => {
+          pointerGlow.style.left = e.clientX + 'px';
+          pointerGlow.style.top = e.clientY + 'px';
+        });
+      }
+
+      // 4. Typing Effect
+      const typingText = document.getElementById('typing-text');
+      if (typingText) {
+        const phrases = ['Information Systems Student', 'Agentic AI Developer', 'Cybersecurity Enthusiast', 'Full Stack Developer'];
+        let phraseIdx = 0;
+        let letterIdx = 0;
+        let isDeleting = false;
+
+        function type() {
+          const current = phrases[phraseIdx];
+          if (isDeleting) {
+            typingText.textContent = current.substring(0, letterIdx - 1);
+            letterIdx--;
+          } else {
+            typingText.textContent = current.substring(0, letterIdx + 1);
+            letterIdx++;
+          }
+
+          let speed = isDeleting ? 40 : 85;
+
+          if (!isDeleting && letterIdx === current.length) {
+            speed = 2200; // End pause
+            isDeleting = true;
+          } else if (isDeleting && letterIdx === 0) {
+            isDeleting = false;
+            phraseIdx = (phraseIdx + 1) % phrases.length;
+            speed = 400; // Next pause
+          }
+          setTimeout(type, speed);
+        }
+        setTimeout(type, 800);
+      }
+
+      // 5. Project search handler
+      const searchInput = document.getElementById('project-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', e => {
+          searchKeyword = e.target.value;
+          filterAndRender();
+        });
+      }
+
+      // 6. Intersection Observer animations
+      const anims = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry, idx) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('active');
+            }, idx * 80);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      anims.forEach(el => obs.observe(el));
+
+      // 7. Navbar scrolling state
+      const header = document.querySelector('.sticky-nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
+      });
+
+      // 8. Mobile menu
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
         mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
           link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
-            console.log('Mobile menu closed after navigation');
           });
         });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-          if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        document.addEventListener('click', e => {
+          if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
             mobileMenu.classList.add('hidden');
           }
         });
       }
 
-      // Fetch and display GitHub stats (optional enhancement)
-      try {
-        const res = await fetch('https://api.github.com/users/RavinduWanasinghe0524/repos');
-        if (res.ok) {
-          const repos = await res.json();
-          const recentRepos = repos.sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0,5);
-          console.log('🚀 Recent repositories:', recentRepos.map(r => `${r.name} (${r.language || 'Mixed'})`));
-          
-          // Optional: Display total repos count in footer or somewhere
-          const totalRepos = repos.length;
-          console.log(`📊 Total public repositories: ${totalRepos}`);
-        }
-      } catch (e) { 
-        console.log('GitHub API unavailable');
+      // 9. Scroll to top logic
+      const scrollBtn = document.getElementById('scroll-to-top');
+      if (scrollBtn) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 350) {
+            scrollBtn.classList.add('visible');
+          } else {
+            scrollBtn.classList.remove('visible');
+          }
+        });
+        scrollBtn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
       }
 
-      // Easter egg: Konami code for special effect
-      let konamiCode = [];
-      const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-      
-      document.addEventListener('keydown', (e) => {
-        konamiCode.push(e.key);
-        konamiCode.splice(-konamiSequence.length - 1, konamiCode.length - konamiSequence.length);
-        
-        if (konamiCode.join('').includes(konamiSequence.join(''))) {
-          document.body.style.animation = 'rainbow 2s linear infinite';
-          setTimeout(() => {
-            document.body.style.animation = '';
-          }, 5000);
-        }
+      // 10. Smooth scrolling internally
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const offsetHeader = document.querySelector('.sticky-nav')?.offsetHeight || 70;
+            const topPos = target.offsetTop - offsetHeader - 15;
+            window.scrollTo({
+              top: Math.max(0, topPos),
+              behavior: 'smooth'
+            });
+          }
+        });
       });
-
-      // Add rainbow animation for easter egg
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes rainbow {
-          0% { filter: hue-rotate(0deg); }
-          100% { filter: hue-rotate(360deg); }
-        }
-      `;
-      document.head.appendChild(style);
     });
   </script>
 </body>
