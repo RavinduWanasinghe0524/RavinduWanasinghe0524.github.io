@@ -289,13 +289,13 @@
     
     /* Section Title Gradient */
     .section-title {
-      font-size: 2.5rem;
+      font-size: 2.5rem !important; /* !important overrides any Tailwind CDN-injected text-3xl/4xl */
       font-weight: 800;
       background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 50%, #67e8f9 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 2.5rem;
+      /* margin-bottom removed — each section controls its own spacing via Tailwind mb-N */
       text-align: center;
       letter-spacing: -0.025em;
     }
@@ -547,7 +547,7 @@
   <!-- Bento About Me -->
   <section id="about" class="py-12 fade-in-up">
     <div class="container">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-8">About Me</h2>
+      <h2 class="section-title text-center mb-8">About Me</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px] max-w-5xl mx-auto">
         <!-- Card 1: My Journey (Col span 2, Row span 2) -->
@@ -663,7 +663,7 @@
   <!-- Interactive Skill Dashboard -->
   <section id="skills" class="py-12 fade-in-up">
     <div class="container">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Skills & Focus</h2>
+      <h2 class="section-title text-center mb-10">Skills & Focus</h2>
       
       <div class="grid md:grid-cols-12 gap-8 items-stretch max-w-5xl mx-auto">
         <!-- Left Side: Interactive Buttons/Categories -->
@@ -738,7 +738,7 @@
   <!-- Interactive Project Section -->
   <section id="projects" class="py-12 fade-in-up">
     <div class="container">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-4">My Project Showcase</h2>
+      <h2 class="section-title text-center mb-4">My Project Showcase</h2>
       <p class="text-slate-400 text-center max-w-xl mx-auto mb-10 text-sm">Explore my GitHub repositories. Filter by category or search for specific languages and libraries.</p>
       
       <!-- Filter Bar -->
@@ -772,7 +772,7 @@
   <!-- Interactive Terminal Section -->
   <section id="terminal" class="py-12 fade-in-up">
     <div class="container max-w-4xl">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-4">Interactive AI Terminal</h2>
+      <h2 class="section-title text-center mb-4">Interactive AI Terminal</h2>
       <p class="text-slate-400 text-center max-w-lg mx-auto mb-8 text-sm">Access core information, trigger retro streams, change site colors, and interface directly with my configurations.</p>
       
       <div class="glass border border-indigo-500/20 rounded-xl overflow-hidden shadow-2xl">
@@ -809,7 +809,7 @@
   <!-- Education Timeline -->
   <section id="education" class="py-12 fade-in-up">
     <div class="container">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-10">Education Timeline</h2>
+      <h2 class="section-title text-center mb-10">Education Timeline</h2>
       
       <div class="relative border-l border-indigo-500/20 max-w-3xl mx-auto pl-8 space-y-12">
         <!-- Timeline Item 1 -->
@@ -871,13 +871,13 @@
   <!-- Contact -->
   <section id="contact" class="py-12 fade-in-up">
     <div class="container">
-      <h2 class="section-title text-3xl md:text-4xl text-center mb-6">Get in Touch</h2>
+      <h2 class="section-title text-center mb-6">Get in Touch</h2>
       <div class="max-w-xl mx-auto text-center">
         <p class="text-slate-300 mb-8">Open to internships, open-source collaborations, and learning opportunities. Connect with me directly below!</p>
         <div class="flex flex-wrap items-center justify-center gap-4">
           <a href="mailto:ravinduwanasinghe97@gmail.com" class="btn-primary text-white px-6 py-3.5 rounded-xl text-sm font-semibold shadow-lg">Email Me</a>
           <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="btn-secondary text-white px-6 py-3.5 rounded-xl text-sm font-semibold">GitHub</a>
-          <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="btn-secondary text-white px-6 py-3.5 rounded-xl text-sm font-semibold">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/ravindu-wanasinghe/" target="_blank" class="btn-secondary text-white px-6 py-3.5 rounded-xl text-sm font-semibold">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -1025,7 +1025,7 @@
         tech: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
         date: "Oct 2024",
         status: "Featured",
-        img: "1.png",
+        img: "8.png",
         code: "https://github.com/RavinduWanasinghe0524/Elite-Wheels",
         demo: "https://ravinduwanasinghe0524.github.io/Elite-Wheels/"
       },
@@ -1519,7 +1519,7 @@
             <div class="text-slate-300 mt-1 font-mono">
               Mail: <a href="mailto:ravinduwanasinghe97@gmail.com" class="text-cyan-400 underline hover:text-cyan-300">ravinduwanasinghe97@gmail.com</a><br/>
               GitHub: <a href="https://github.com/RavinduWanasinghe0524" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">github.com/RavinduWanasinghe0524</a><br/>
-              LinkedIn: <a href="https://www.linkedin.com/in/ravindu-wanasinghe-sri-lanka-profile-link/" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">LinkedIn Profile Link</a>
+              LinkedIn: <a href="https://www.linkedin.com/in/ravindu-wanasinghe/" target="_blank" class="text-cyan-400 underline hover:text-cyan-300">LinkedIn Profile Link</a>
             </div>
           `;
         case 'neofetch':
@@ -1563,11 +1563,13 @@
           } else {
             return `<div class="text-red-400 font-mono mt-1">Unknown theme: '${escapeHtml(arg)}'. Type 'theme' for list.</div>`;
           }
-        case 'clear':
-          const terminalBody = document.getElementById('terminal-body');
-          const container = terminalBody.querySelector('.terminal-output-container') || terminalBody;
-          container.innerHTML = '';
+        case 'clear': {
+          // Wrapped in braces to allow lexical const declarations inside switch case
+          const tb = document.getElementById('terminal-body');
+          const cont = tb ? (tb.querySelector('.terminal-output-container') || tb) : null;
+          if (cont) cont.innerHTML = '';
           return '';
+        }
         case 'matrix':
           triggerMatrixEffect();
           return `<div class="text-emerald-500 animate-pulse mt-1 select-none">// STREAMS SYNCHRONIZED. STARTING OVERRIDE...</div>`;
